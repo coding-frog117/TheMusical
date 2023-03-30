@@ -1,7 +1,6 @@
 ---
 name: Bug report
-about: '--- name: Bug report about: Create a report to help us improve title: "[#issue-number]
-  Bug report" labels: "\U0001F6A8  bug" assignees: ''''  ---'
+about: Create a report to help us improve
 title: ''
 labels: ''
 assignees: ''

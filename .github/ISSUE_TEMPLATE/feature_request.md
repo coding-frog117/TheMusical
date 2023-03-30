@@ -1,8 +1,16 @@
 ---
 name: Feature request
-about: '--- name: Feature report about: Suggest an idea for this project title: "[#issue-number]
-  Feature report" labels: '''' assignees: ''''  ---'
+about: Suggest an idea for this project
 title: ''
+labels: ''
+assignees: ''
+
+---
+
+---
+name: Feature report
+about: Suggest an idea for this project
+title: "[#issue-number] Feature report"
 labels: ''
 assignees: ''
 
