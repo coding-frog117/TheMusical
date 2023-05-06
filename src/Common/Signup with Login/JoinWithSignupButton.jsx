@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CheckButton } from '../../Common/Signup with Login/Button'
+import { CheckButton } from './Button'
 
 const ButtonCont = styled(CheckButton)`
     width: 100%;
 `
 
-export default function JoinButton(props) {
+export default function JoinWithSignupButton(props) {
   return (
     <ButtonCont type="submit">
         {props.text}
