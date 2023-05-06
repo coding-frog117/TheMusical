@@ -1,4 +1,5 @@
 import React from 'react'
+import BuyWithSellSelectTab from '../molecules/BuyWithSellSelectTab'
 import Form from '../atoms/Form'
 import IdInput from '../molecules/IdInput'
 import PWInput from '../molecules/PWInput'
@@ -9,7 +10,9 @@ import EmailInput from '../molecules/EmailInput'
 
 export default function SignupForm() {
   return (
-        <Form>
+    <>
+        <BuyWithSellSelectTab />
+        <Form>      
             <IdInput />
             <PWInput />
             <PWConfirmInput />
@@ -17,5 +20,6 @@ export default function SignupForm() {
             <PhoneNumberInput />
             <EmailInput />
         </Form>
+    </>
   )
 }
