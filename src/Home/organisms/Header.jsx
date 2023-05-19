@@ -1,19 +1,19 @@
 import React from 'react'
+import { HomeLayout } from '../atoms/HomeLayout'
 import { HeaderBar } from '../atoms/HeaderBar'
 import HeaderLogo from '../atoms/HeaderLogo'
 import SearchBar from '../molecules/SearchBar'
-import CartButton from '../molecules/CartButton'
-import MyPageButton from '../molecules/MyPageButton'
+import Buttons from '../molecules/Buttons'
 
 export default function Header() {
   return (
-    <HeaderBar>
+    <HomeLayout>
+      <HeaderBar>
         <HeaderLogo />
         <SearchBar />
-        <MyPageButton />
-        <CartButton />
-        
-    </HeaderBar>
+        <Buttons />
+      </HeaderBar>
+    </HomeLayout>
 
   )
 }

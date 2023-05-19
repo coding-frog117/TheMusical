@@ -60,7 +60,6 @@ const GlobalStyles = createGlobalStyle`
         font-family : 'Spoqa Han Sans Neo' ,sans-serif;
         font-weight : 400;
         background-color: #F6F9F0;
-        margin-bottom: 100px;
     }
     ol, ul{
         list-style: none;

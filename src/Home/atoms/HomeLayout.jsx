@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const HomeLayout = styled.div`
-    width : 100%;
-    padding : 0 340px;
-    background-color : #fff;
+    width : 1280px;
     margin : 0 auto;
 `
