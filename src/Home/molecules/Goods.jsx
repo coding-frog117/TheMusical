@@ -10,9 +10,9 @@ export default function Goods() {
     <>
     {[1,2,3,4,5,6,7].map(()=>(
               <li>
-                <GoodsImg />
-                <GoodsSeller text="개발자 송개굴"/>
-                <GoodsName text="개구리 키보드"/>
+                <GoodsImg size= "380px"/>
+                <GoodsSeller text="개발자 송개굴" />
+                <GoodsName text="개구리 키보드" />
                 <GoodsPrice text="23,000"/>
                 <GoodsPriceCount />
               </li>

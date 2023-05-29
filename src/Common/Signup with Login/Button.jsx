@@ -3,13 +3,12 @@ import styled from 'styled-components'
 
 export const CheckButton = styled.button`
     width: 122px;
-    height: 54px;
-    flex-shrink : 0;
+    height: 60px;
     background-color : ${(props) => props.theme.mainColor};
     color : #fff;
     font-size: ${(props) => props.theme.sm};
+    font-weight : 700;
     border-radius: ${(props) => props.theme.radius};
-    margin : 10px 0; 
 `
 export default function Button(props) {
   return (

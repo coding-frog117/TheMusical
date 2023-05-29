@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import emptyCheckbox from '../../assets/check-box.svg'
 import fillCheckbox from '../../assets/check-fill-box.svg'
 
+const TermsContainer = styled.div`
+  margin : 34px 0;
+`
+
 const TermsInp = styled.input`
   appearance: none;
   width: 16px;
@@ -24,11 +28,11 @@ const TermsText = styled.span`
 
 export default function Terms() {
     return (
-          <label>
+          <TermsContainer>
             <TermsInp type='checkbox' />
             <TermsText>
               OO마켓의 이용약관 및 개인정보처리방침에 대한 내용을 확인하였고 동의합니다.
             </TermsText>
-          </label>
+          </TermsContainer>
   )
 }

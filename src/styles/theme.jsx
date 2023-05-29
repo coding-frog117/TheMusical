@@ -4,6 +4,9 @@ const theme = {
     lightGray : '#C4C4C4',
     darkGray : '#767676',
     sm : '16px',
+    md : '18px',
+    lg : '22px',
+    xLg : '24px', 
     radius: '5px',
     radiusLg : '10px',
     bold : '700'

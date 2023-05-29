@@ -8,6 +8,6 @@ const PriceText = styled.span`
 
 export default function GoodsPrice(props) {
   return (
-    <PriceText>{props.text}</PriceText>
+    <PriceText fontsize = {props.fontsize}>{props.text}</PriceText>
   )
 }

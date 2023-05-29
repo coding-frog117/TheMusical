@@ -3,13 +3,12 @@ import styled from 'styled-components'
 
 const NameText = styled.span`
     margin-bottom : 10px;
-    font-size : 22px;
-    color : #000;
+    font-size :18px;
     display : block;
 `
 
 export default function GoodsName(props) {
   return (
-    <NameText>{props.text}</NameText>
+    <NameText fontsize = {props.fontsize}>{props.text}</NameText>
   )
 }
