@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const Button = styled.button`
     width : 50px;
     height : 50px;
-    margin : 30px 0;
+    margin : ${(props)=>props.margin};
     font-size :20px;
     border : 1px solid ${(props)=>props.theme.lightGray};
     background-image : url(${(props)=>props.bgImg});
@@ -15,6 +15,6 @@ export const Button = styled.button`
 
 export default function CountButton(props) {
   return (
-    <Button bgImg = {props.bgImg} />
+    <Button bgImg = {props.bgImg} margin = {props.margin}/>
   )
 }

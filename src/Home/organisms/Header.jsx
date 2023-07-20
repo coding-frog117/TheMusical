@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeLayout } from '../atoms/HomeLayout'
+import { HomeLayout } from '../../Common/HomeLayout'
 import { HeaderBar } from '../atoms/HeaderBar'
 import HeaderLogo from '../atoms/HeaderLogo'
 import SearchBar from '../molecules/SearchBar'

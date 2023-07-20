@@ -53,13 +53,11 @@ const GlobalStyles = createGlobalStyle`
         border: 0;
         font-size: 10px;
         vertical-align: baseline;
-        
     }
     body{
         line-height: 1;
         font-family : 'Spoqa Han Sans Neo' ,sans-serif;
         font-weight : 400;
-        background-color: #F6F9F0;
     }
     ol, ul{
         list-style: none;

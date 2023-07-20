@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeLayout } from '../../Home/atoms/HomeLayout'
+import { HomeLayout } from '../../Common/HomeLayout'
 import MainTop from '../organisms/MainTop'
 import MainBottom from '../organisms/MainBottom'
 

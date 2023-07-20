@@ -7,6 +7,7 @@ const theme = {
     md : '18px',
     lg : '22px',
     xLg : '24px', 
+    big : '36px',
     radius: '5px',
     radiusLg : '10px',
     bold : '700'

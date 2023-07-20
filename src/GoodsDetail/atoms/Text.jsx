@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Span = styled.span`
+export const Span = styled.span`
     color : ${(props) => props.color ? props.color : props.theme.darkGray};
     font-size : 18px;
     font-weight : ${(props) => props.fontweight ? props.fontweight : 400};
