@@ -3,7 +3,7 @@ import GoodsImg from '../atoms/GoodsImg'
 import GoodsSeller from '../atoms/GoodsSeller'
 import GoodsName from '../atoms/GoodsName'
 import GoodsPrice from '../atoms/GoodsPrice'
-import GoodsPriceCount from '../atoms/GoodsPriceCount'
+import GoodsPriceCount from '../../Common/GoodsPriceCount'
 
 export default function Goods() {
   return (
