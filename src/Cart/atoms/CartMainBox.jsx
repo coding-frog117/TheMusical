@@ -5,6 +5,7 @@ const CartMainBox= styled.div`
   display : flex;
   flex-direction : column;
   gap : 10px;
+  margin-bottom : 80px;
 `
 
 export default CartMainBox;

@@ -9,6 +9,9 @@ export const Button = styled.button`
     font-size : ${(props)=>props.theme.xLg};
     font-weight : 700;
     border-radius: ${(props)=>props.theme.radius};
+    display : block;
+    margin : 0 auto;
+    margin-bottom : 160px;   
 `
 
 export default function BigButton(props){
