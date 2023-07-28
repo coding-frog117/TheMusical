@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from '../../assets/goodsImg.jpg'
+import Img from '../assets/goodsImg.jpg'
 
 export const ImgLayout = styled.img`
     width : ${(props)=>props.size};

@@ -1,5 +1,5 @@
 import React from 'react'
-import GoodsImg from '../atoms/GoodsImg'
+import GoodsImg from '../../Common/GoodsImg'
 import GoodsSeller from '../atoms/GoodsSeller'
 import GoodsName from '../atoms/GoodsName'
 import GoodsPrice from '../atoms/GoodsPrice'
