@@ -19,6 +19,8 @@ import MiddleBlank from "./Order/atoms/MiddleBlank";
 import SmallBlank from "./Order/atoms/SmallBlank";
 import BigBlank from "./Order/atoms/BigBlank";
 import NameInput from "./Order/molecules/OrderNameInput";
+import PhoneInput from "./Order/molecules/PhoneInput";
+import OrderEmailInput from "./Order/molecules/OrderEmailInput";
 
 
 function App() {
@@ -44,7 +46,10 @@ function App() {
     <Border height = "2px" margin = "18px 0 40px"/>
     
     <Text text = "주문자 정보" fontSize = {(props)=>props.theme.md} fontWeight="500"/>
+    <Border height = "2px" margin = "8px 0 0"/>
     <NameInput />
+    <PhoneInput />
+    <OrderEmailInput />
 
     </HomeLayout>
     
