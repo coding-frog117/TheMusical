@@ -6,6 +6,7 @@ const Span = styled.span`
     color : ${(props)=>props.color};
     font-weight : ${(props)=>props.fontWeight};
     margin : ${(props)=>props.margin};
+    vertical-align :top;
     
 `
 
