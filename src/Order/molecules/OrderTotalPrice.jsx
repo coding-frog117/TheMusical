@@ -2,7 +2,7 @@ import React from 'react'
 import InlineText from '../../Common/InlineText'
 import OrderTotalPriceBox from '../atoms/OrderTotalPriceBox'
 
-export default function OrderPrice() {
+export default function OrderTotalPrice() {
   return (
     <OrderTotalPriceBox>
       <InlineText text = "총 주문금액 " fontSize = {(props)=>props.theme.md} fontWeight = "500"/>
