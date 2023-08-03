@@ -6,12 +6,17 @@ export const Li = styled.li`
     height : 50px;
     padding : 15px 20px;
     font-size : 16px;
-    list-style : none
-    background-color : ${(props)=>props.backGroundColor}
+    list-style : none;
+    border-radius : ${(props)=>props.theme.radius};
+    color : #fff;
+    background-color : ${(props)=>props.backgroundColor == false ?  'white' : (props)=>props.theme.mainColor};
 `
 
 export default function Category(props) {
+    const [bgColor , setBgColor] = useState(false);
+
     return (
-        <Li backGroundColor = {props.bgColor} onClick={props.setBgColor("#21BF48")}>{props.text}</Li>
+        <Li backgroundColor = {bgColor} onClick={()=>{setBgColor(true);
+        console.log(bgColor)}}>{props.text}</Li>
   )
 }

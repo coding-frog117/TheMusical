@@ -4,8 +4,9 @@ import InlineText from '../../Common/InlineText'
 import UploadButton from '../atoms/UploadButton'
 
 const H2 = styled.h2`
-    width : 100%;
-    padding : 44px 0 42px;
+    width : 1720px;
+    padding : 44px 0 42px 0;
+    margin : 0 auto;
 `
 
 export default function DashBoardHeader() {
