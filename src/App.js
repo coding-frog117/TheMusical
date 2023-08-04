@@ -6,14 +6,14 @@ import CartTemplates from "./Cart/templates/CartTemplates";
 import OrderTemplates from "./Order/templates/OrderTemplates";
 import { HomeLayout } from "./Common/HomeLayout";
 import SellerHeader from "./Common/Header/SellerHeader";
-import TitleText from "./Common/TitleText";
-import PageTitle from "./Common/PageTitle";
-import InlineText from "./Common/InlineText";
-import Category from "./DashBoard/atoms/Category";
 import SideBar from "./DashBoard/molecules/SideBar";
-import UploadButton from "./DashBoard/atoms/UploadButton";
 import DashBoardHeader from "./DashBoard/molecules/DashBoardHeader";
 import SellingTitle from "./DashBoard/molecules/SellingTitle";
+import SellingItem from "./DashBoard/molecules/SellingItem";
+import DashboardBox from "./DashBoard/organisms/DashboardBox";
+import DashBoardTemplates from "./DashBoard/DashBoardTemplates";
+
+
 function App() {
     return (
     <>
@@ -24,18 +24,7 @@ function App() {
     <CartTemplates />
     <OrderTemplates />
 
-    <>
-      <SellerHeader />
-
-      <DashBoardHeader />
-
-      <SellingTitle />
-
-      <SideBar />
-
-
-
-    </>
+    <DashBoardTemplates />
     </>
   );
 }
