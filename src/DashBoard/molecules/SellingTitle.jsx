@@ -7,6 +7,7 @@ const SellingBox = styled.div`
     height : 60px;
     border-bottom : 1px solid ${(props)=>props.theme.lightGray};
     padding : 18px 0;
+    background-color : #fff;
 `
 
 export default function SellingTitle() {

@@ -13,6 +13,7 @@ const Li = styled.li`
     display : flex;
     align-items : center;
     border-bottom : 1px solid ${(props)=> props.theme.lightGray};
+    background-color : #fff;
 `
 export default function SellingItem() {
   const [item ,setItem] = useState([1,2,3]);

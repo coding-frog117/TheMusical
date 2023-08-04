@@ -8,11 +8,11 @@ const Main = styled.main`
     height : 884px;
     border : 1px solid ${(props)=>props.theme.lightGray};
     margin : 0 auto;
+    background-color : ${(props)=>props.theme.whiteGray};
 `
 
 const Div = styled.div`
   width : 1440px;
-  background-color : ${(props)=>props.theme.whiteGray}
 `
 export default function DashboardBox() {
   return (

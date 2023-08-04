@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 const H1 = styled.h1`
-    width : 100%;
+    width : 1720px;
     height : 90px;
     padding : 26px 0;
+    margin : 0 auto;
     font-size : 30px;
     font-weight : 500;
     box-shadow : 4px 0 5px gray;
