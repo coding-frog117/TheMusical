@@ -11,7 +11,9 @@ import DashBoardHeader from "./DashBoard/molecules/DashBoardHeader";
 import SellingTitle from "./DashBoard/molecules/SellingTitle";
 import SellingItem from "./DashBoard/molecules/SellingItem";
 import DashboardBox from "./DashBoard/organisms/DashboardBox";
-import DashBoardTemplates from "./DashBoard/DashBoardTemplates";
+import DashBoardTemplates from "./DashBoard/templates/DashBoardTemplates";
+import RegistrationHeader from "./ProductRegistration/atoms/RegistrationHeader";
+import GrayTitleText from "./ProductRegistration/atoms/GrayTitleText";
 
 
 function App() {
@@ -25,6 +27,9 @@ function App() {
     <OrderTemplates />
 
     <DashBoardTemplates />
+
+    <RegistrationHeader />
+    <GrayTitleText text = "상품이미지"/>
     </>
   );
 }
