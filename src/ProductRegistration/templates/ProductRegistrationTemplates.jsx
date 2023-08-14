@@ -1,8 +1,8 @@
 import React from 'react'
-import RegistrationHeader from './atoms/RegistrationHeader'
-import Main from './organisms/Main'
+import RegistrationHeader from '../atoms/RegistrationHeader'
+import Main from '../organisms/Main'
 import styled from 'styled-components'
-import SellerHeader from '../Common/Header/SellerHeader'
+import SellerHeader from '../../Common/Header/SellerHeader'
 
 const Section = styled.section`
     width : 1720px;
