@@ -7,8 +7,9 @@ const ButtonCont = styled(CheckButton)`
 `
 
 export default function JoinWithSignupButton(props) {
+
   return (
-    <ButtonCont type="submit">
+    <ButtonCont type="submit" >
         {props.text}
     </ButtonCont>
   )
