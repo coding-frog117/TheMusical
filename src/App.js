@@ -6,7 +6,7 @@ import CartTemplates from "./Cart/templates/CartTemplates";
 import OrderTemplates from "./Order/templates/OrderTemplates";
 import DashBoardTemplates from './DashBoard/templates/DashBoardTemplates';
 import ProductRegistrationTemplates from "./ProductRegistration/templates/ProductRegistrationTemplates";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 
 function App() {

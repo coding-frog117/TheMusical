@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import IconCheckOff from '../../assets/icon-check-off.svg'
 
-const Input = styled.input`
+export const  IconInputBox = styled.input`
     font-size: ${(props) => props.theme.sm};
     border : 1px solid #C4C4C4;
     border-radius : ${(props)=> props.theme.radius};
@@ -16,8 +16,4 @@ const Input = styled.input`
     background-position : 96% center;
 `
 
-export default function IconInputBox() {
-  return (
-    <Input />
-  )
-}
+export default IconInputBox;

@@ -1,19 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputTitle from "../atoms/InputTitle"
 import FlexBox from "../atoms/FlexBox"
 import InputBox from "../atoms/InputBox"
 import ConfirmButton from '../atoms/ConfirmButton'
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
 
+
+function checkButton(username){
+  const url = "https://openmarket.weniv.co.kr/";
+  return fetch(url+"accounts/signup/valid/username/",{
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username : username,
+    }),
+  })
+.then(response => response.json())
+
+}
+
+async function doubleCheck(username, setConfirmtext){
+  try{
+    let user = await checkButton(username); 
+    console.log(user);
+    (user.Success !== undefined 
+      ? setConfirmtext("멋진 아이디네요:)") 
+      : setConfirmtext("중복된 아이디입니다."))
+    }
+  catch(error){
+    console.log(error);
+  }
+}
+   
 export default function IdInput() {
+  const [username , setUsername] = useState('');
+  const [confirmtext, setConfirmtext] =useState('');
+
   return (
     <>
        <InputTitle title = "아이디" />
         <FlexBox>
-          <InputBox />
-          <ConfirmButton text= "중복확인"/>
+          <InputBox onChange = {(e)=>{setUsername(e.target.value)}}/>
+          <ConfirmButton onClick ={()=>{doubleCheck(username,setConfirmtext)}} type = "button">중복확인</ConfirmButton>
         </FlexBox>
-        <ConfirmText text = "멋진 아이디군요:)"/>
+        <ConfirmText text = {confirmtext}/>
     </>
   )
 }
