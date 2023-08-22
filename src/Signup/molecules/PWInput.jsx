@@ -11,8 +11,8 @@ export default function PWInput() {
           setPw(e.target.value);
           let regExp = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[0-9a-zA-Z]{8,}$/g);
           regExp.test(pw) == true ? setPw(true) : setPw(false)
-
         }}/>
+
     </>
   )
 }

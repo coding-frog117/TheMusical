@@ -4,6 +4,8 @@ import FlexBox from "../atoms/FlexBox"
 import InputBox from "../atoms/InputBox"
 import ConfirmButton from '../atoms/ConfirmButton'
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
+import {useSelector , useDispatch} from 'react-redux'
+import {changename, increase} from '../../store'
 
 
 function checkButton(username){
@@ -35,6 +37,16 @@ async function doubleCheck(username, setConfirmtext){
 }
    
 export default function IdInput() {
+
+  const a = useSelector((state)=>{return state})
+
+  console.log(a);
+
+  const dispatch = useDispatch();
+  
+  // dispatch(changename());
+  // dispatch(increase());
+
   const [username , setUsername] = useState('');
   const [confirmtext, setConfirmtext] =useState('');
 
