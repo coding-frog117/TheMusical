@@ -1,14 +1,46 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import InputTitle from "../atoms/InputTitle"
-import IconInputBox from "../atoms/IconInputBox"
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
+import PwLabel from '../atoms/PwLabel'
+import PwInput from '../atoms/PwInput'
+import CheckImg from '../atoms/CheckImg'
+import IconCheckOff from '../../assets/icon-check-off.svg'
+import IconCheckOn from '../../assets/icon-check-on.svg'
 
-export default function PWConfirmInput() {
+// function confirmCheck(value, password, setConfirm){
+//   value === password 
+//   ? setConfirm(true)
+//   : setConfirm(false)
+// }
+
+
+export default function PWConfirmInput(props) {
+  const [passwordConfirm, setPasswordConfirm] = useState(''); 
+  const [confirm, setConfirm] = useState(true);
+
+  useEffect(()=>{
+    passwordConfirm === props.password 
+  ? setConfirm(true)
+  : setConfirm(false)
+
+  },[passwordConfirm, props.password])
+
   return (
     <>
-        <InputTitle title = "비밀번호 재확인" />
-        <IconInputBox />
-        <ConfirmText text = "비밀번호가 확인되었습니다."/>
+    <InputTitle title = "비밀번호 확인" />
+    <PwLabel onChange={(e)=>{
+          setPasswordConfirm(e.target.value);
+          // confirmCheck(e.target.value , props.password, setConfirm);
+        }}>
+        <PwInput />
+        {confirm === true ? <CheckImg src = {IconCheckOn}/> : <CheckImg src = {IconCheckOff}/>}
+    </PwLabel>
+    <ConfirmText 
+      text = {
+        passwordConfirm === '' ? null : 
+        (confirm === true ? "비밀번호가 확인되었습니다." : "비밀번호가 다릅니다.")}
+      color = {confirm === true ? (props)=>props.theme.mainColor : (props)=> props.theme.red}
+    />
     </>
   )
 }
