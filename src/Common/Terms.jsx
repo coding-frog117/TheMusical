@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import emptyCheckbox from '../assets/check-box.svg'
 import fillCheckbox from '../assets/check-fill-box.svg'
 
-const TermsContainer = styled.div`
+const TermsContainer = styled.label`
+  display : block;
   margin : 34px 0;
 `
 
@@ -27,8 +28,14 @@ const TermsText = styled.span`
 
 export default function Terms(props) {
     return (
-          <TermsContainer>
-            <TermsInp type='checkbox' />
+          <TermsContainer htmlFor = "terms">
+            <TermsInp 
+            id = "terms" 
+            type='checkbox' 
+            {...props.register('terms',{
+              required : '약관을 동의해주세요.'
+            })}
+            />
             <TermsText>
               {props.text}
             </TermsText>

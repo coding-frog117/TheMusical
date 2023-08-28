@@ -4,9 +4,11 @@ import FlexBox from "../atoms/FlexBox"
 import InputBox from "../atoms/InputBox"
 import ConfirmButton from '../atoms/ConfirmButton'
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
-import {useSelector , useDispatch} from 'react-redux'
-import {changename, increase} from '../../store'
+import styled from 'styled-components'
 
+const Label = styled.label`
+  width : 100%;
+`
 
 function checkButton(username){
   const url = "https://openmarket.weniv.co.kr/";
@@ -43,26 +45,29 @@ async function doubleCheck(username, setConfirmtext){
   }
 }
    
-export default function IdInput() {
-
-  // const a = useSelector((state)=>{return state})
-
-  // console.log(a);
-
-  // const dispatch = useDispatch();
-  
-  // dispatch(changename());
-  // dispatch(increase());
-
-  const [username , setUsername] = useState('');
+export default function IdInput(props) {
+  const [id, setId] = useState(''); 
   const [confirmtext, setConfirmtext] =useState('');
 
+  const errorId = props.error;
   return (
     <>
        <InputTitle title = "아이디" />
-        <FlexBox>
-          <InputBox onChange = {(e)=>{setUsername(e.target.value)}}/>
-          <ConfirmButton onClick ={()=>{doubleCheck(username,setConfirmtext)}} type = "button">중복확인</ConfirmButton>
+        <FlexBox >
+          <Label 
+          htmlFor = "id" 
+          onChange={
+            (e)=>{setId(e.target.value)}} >
+
+            <InputBox 
+              id = "id"
+              {...props.register("id",{
+                required : '아이디를 입력해주세요.'
+              })}
+              />
+          </Label>
+
+          <ConfirmButton onClick ={()=>{doubleCheck(id,setConfirmtext)}} type = "button">중복확인</ConfirmButton>
         </FlexBox>
         <ConfirmText text = {confirmtext} color = {confirmtext === "멋진 아이디네요:)" 
         ? (props)=>props.theme.mainColor 
