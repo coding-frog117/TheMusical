@@ -7,16 +7,16 @@ import CheckImg from '../atoms/CheckImg'
 import IconCheckOff from '../../assets/icon-check-off.svg'
 import IconCheckOn from '../../assets/icon-check-on.svg'
 
-// function confirmCheck(value, password, setConfirm){
-//   value === password 
-//   ? setConfirm(true)
-//   : setConfirm(false)
-// }
+function confirmCheck(value, password, setConfirm){
+  value === password 
+  ? setConfirm(true)
+  : setConfirm(false)
+}
 
 
 export default function PWConfirmInput(props) {
   const [passwordConfirm, setPasswordConfirm] = useState(''); 
-  const [confirm, setConfirm] = useState(true);
+  const [confirm, setConfirm] = useState(false);
 
   useEffect(()=>{
     passwordConfirm === props.password 
@@ -30,10 +30,10 @@ export default function PWConfirmInput(props) {
     <InputTitle title = "비밀번호 확인" />
     <PwLabel onChange={(e)=>{
           setPasswordConfirm(e.target.value);
-          // confirmCheck(e.target.value , props.password, setConfirm);
         }}>
+          
         <PwInput />
-        {confirm === true ? <CheckImg src = {IconCheckOn}/> : <CheckImg src = {IconCheckOff}/>}
+        {(confirm === false || passwordConfirm === '') ? <CheckImg src = {IconCheckOff}/> : <CheckImg src = {IconCheckOn}/>}
     </PwLabel>
     <ConfirmText 
       text = {
