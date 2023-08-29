@@ -69,6 +69,7 @@ export default function IdInput(props) {
 
           <ConfirmButton onClick ={()=>{doubleCheck(id,setConfirmtext)}} type = "button">중복확인</ConfirmButton>
         </FlexBox>
+        {props.error.id && <small>{props.error.id.message}</small>}
         <ConfirmText text = {confirmtext} color = {confirmtext === "멋진 아이디네요:)" 
         ? (props)=>props.theme.mainColor 
         : (props)=>props.theme.red}/>

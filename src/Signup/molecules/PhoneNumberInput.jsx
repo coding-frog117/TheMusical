@@ -6,7 +6,7 @@ import InputBox from "../atoms/InputBox"
 export default function PhoneNumberInput(props) {
 
   return (
-    <>
+    <div>
         <InputTitle title = "휴대폰 번호" />
         <FlexBox>
             <InputBox onChange={(e)=>props.setPhoneFirst(e.target.value)}
@@ -28,6 +28,14 @@ export default function PhoneNumberInput(props) {
               pattern : '/[0-9]{3,4}g/'
             })}/>
         </FlexBox>
-    </>
+        
+        {(props.error.phoneFirst) 
+        ? <small>{props.error.phoneFirst.message}</small> 
+        : (props.error.phoneSecond) 
+        ? <small>{(props.error.phoneSecond.message)}</small>
+        : (props.error.phoneThird)
+        ? <small>{props.error.phoneThird.message}</small> : null}
+
+    </div>
   )
 }

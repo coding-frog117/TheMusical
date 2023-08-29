@@ -15,7 +15,7 @@ function checkPw(value, setCheck){
 export default function PasswordInput(props) {
     const [check, setCheck] = useState(false);
   return (
-    <>
+    <div>
     <InputTitle title = "비밀번호" htmlFor = "password"/>
     <PwLabel onChange={(e)=>{
           props.setPassword(e.target.value);
@@ -26,7 +26,7 @@ export default function PasswordInput(props) {
           type='text'
           {
             ...props.register("password",{
-              required : "비밀번호를 입력해주세요.",
+              required : "비밀번호를 입력해주세요",
               minLength : {
                 value : 8,
                 message : '8자리 이상 입력해야 합니다.'
@@ -41,6 +41,7 @@ export default function PasswordInput(props) {
         />
         {check === true ? <CheckImg src = {IconCheckOn}/> : <CheckImg src = {IconCheckOff}/>}
     </PwLabel>
-    </>
+    {props.error.password && <small>{props.error.password.message}</small>}
+    </div>
   )
 }
