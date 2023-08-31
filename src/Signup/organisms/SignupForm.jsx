@@ -11,106 +11,100 @@ import {useForm} from 'react-hook-form'
 import Terms from '../../Common/Terms'
 import Layout from '../../Common/Signup with Login/Layout'
 import styled from 'styled-components'
-
-const GrayBox = styled(Form)`
-    width : 550px;
-    margin : 0 auto;
-  `
-
-  const Div = styled.div`
-    width : 550px;
-    margin : 0 auto;
-  `
+import BusinessNumberInput from '../molecules/BusinessNumberInput'
+import StoreNameInput from '../molecules/StoreNameInput'
+import { usePost } from '../../hooks/useFetch'
+import JoinWithSignupButton from '../../Common/Signup with Login/JoinWithSignupButton'
 
   const SignForm = styled.form`
     width : 550px;
     margin : 0 auto;
   `
 
-  const Button = styled.button`
-    width : 100%;
-    height : 60px;
-    background-color : ${(props)=>props.theme.mainColor};
-    font-weight : 700;
-    font-size : ${(props)=>props.theme.md};
-    color : #fff;
-    border-radius : 5px;
-  `
-
 export default function SignupForm(props) {
+
+  const postFunc = usePost("accounts/signup/");
+
   const [password , setPassword] = useState('');
   const {register, handleSubmit, formState : {isSubmitting, errors}} = useForm();
 
-  function sub(data){
+  const [buySelect, setBuySelect] = useState(true);
+  const [sellSelect, setSellSelect] = useState(false);
 
+  async function signup(data){
     const username = data.id;
     const password = data.password;
     const pwconfirm = data.pwconfirm;
     const phoneNumber = (data.phoneFirst+ data.phoneSecond+data.phoneThird)
     const name = data.name;
+    const company_registration_number = data.business;
+		const store_name = data.storename;
 
+    const buyerData = {
+      username: username,
+      password: password,
+      password2: pwconfirm,
+      phone_number: phoneNumber.toString(),
+      name: name,
+  };
 
-    console.log(username);
-    console.log(password);
-    console.log(pwconfirm);
-    console.log(phoneNumber);
-    console.log(name);
-
-    const userData = {
+    const sellerData = {
         username: username,
 		    password: password,
 		    password2: pwconfirm,
 		    phone_number: phoneNumber.toString(),
 		    name: name,
+        company_registration_number: company_registration_number,
+		    store_name: store_name,
     };
 
-    const url = "https://openmarket.weniv.co.kr/";
-    return fetch(url+"accounts/signup/",{
-      method : "POST",
-      headers: {
-        "Content-Type": "application/json",
-    },
-      body: JSON.stringify(userData),
-    })
-    .then(
-      response => response.json())
-  }
-
-  async function signup(data){
     try{
-      let account = await sub(data);
+      let account = await postFunc(buySelect === true ? buyerData : sellerData);
       console.log(account);
+      alert(name+'님 반갑습니다*^^* 회원가입이 완료되었습니다');
 
     } catch(error) {
-      console.log(error);
+      alert(Object.values(error.response.data)[0]);
     }
-  } 
+  }
 
   return (
-    <>
-      <SignForm onSubmit={handleSubmit(async(data)=>{
+      <SignForm
+      onSubmit={
+        handleSubmit(async(data)=>{
         await new Promise((r) => setTimeout(r, 1000));
-        console.log(data)
-        signup(data)}
-        )}>
+        console.log(data);
+        signup(data);
+      }
+      )}>
 
-      <BuyWithSellSelectTab />
-        <GrayBox>
+      <BuyWithSellSelectTab buySelect = {buySelect} setBuySelect = {setBuySelect} sellSelect = {sellSelect} setSellSelect = {setSellSelect}/>
+        <Form>
+            {buySelect === true 
+            ? <> 
             <IdInput register = {register} error = {errors}/>
             <PasswordInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
             <PWConfirmInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
             <NameInput register = {register} error = {errors}/>
             <PhoneNumberInput register = {register} error = {errors}/>
             <EmailInput register = {register} error = {errors}/>
-        </GrayBox>
+            </>
+          : <>
+            <IdInput register = {register} error = {errors}/>
+            <PasswordInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
+            <PWConfirmInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
+            <NameInput register = {register} error = {errors}/>
+            <PhoneNumberInput register = {register} error = {errors}/>
+            <EmailInput register = {register} error = {errors}/>
+            <BusinessNumberInput register = {register} error = {errors}/>
+            <StoreNameInput register = {register} error = {errors}/>
+            </>}
+            
+        </Form>
 
-        <Div>
           <Terms text = "OO마켓의 이용약관 및 개인정보처리방침에 대한 내용을 확인하였고 동의합니다." register = {register}/>
-          <Button disabled={isSubmitting}>가입하기</Button>
-        </Div>
-          
-      </SignForm>
+          <JoinWithSignupButton disabled={isSubmitting}>가입하기</JoinWithSignupButton>
 
-    </>
+      </SignForm>
   )
 }

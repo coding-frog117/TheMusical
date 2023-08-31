@@ -1,40 +1,33 @@
 import React, { useState } from 'react'
-import SelectTabLayout from '../../Common/Signup with Login/SelectTabLayout'
-import BuyingSelectTab from '../atoms/BuyingSelectTab'
-import SellingSelectTab from '../atoms/SellingSelectTab'
 import styled from 'styled-components'
+import SelectTabLayout from '../../Common/Signup with Login/SelectTabLayout'
+import SelectTab from '../../Common/Signup with Login/SelectTab'
 
-const SelectTab = styled.div`
-    width : 100%;
-    font-size : ${(props)=>props.theme.sm};
-    font-weight : 500;
-    padding : 20px;
-    border : 1px solid #C4C4C4;
-    border-bottom : 0px;
-    border-radius : ${(props) => props.theme.radiusLg} ${(props) => props.theme.radiusLg} 0 0;
+const Div = styled(SelectTab)`
     background-color : ${(props)=>props.bgColor};
 `
 
-export default function BuyWithSellSelectTab() {
-  const [buySelect, setBuySelect] = useState('#C4C4C4');
-  const [sellSelect, setSellSelect] = useState('#C4C4C4');
-{console.log(sellSelect);}
+export default function BuyWithSellSelectTab(props) {
+
   return (
     <SelectTabLayout>
-        <SelectTab 
-        text = "구매 회원가입"
-        bgcolor = {buySelect}
+        <Div
+        bgColor = {props.buySelect === true ? '#fff' : (props)=>props.theme.lightGray}
         onClick = {()=>{
-          setBuySelect("#fff");
-          setSellSelect('#C4C4C4');
-      }}/>
-        <SelectTab 
-        text = "판매 회원가입"
-        bgColor = {sellSelect}
+          props.setBuySelect(true);
+          props.setSellSelect(false);
+      }}>
+        구매 회원가입
+        </Div>
+
+        <Div 
+        bgColor = {props.sellSelect === true ? '#fff' : (props)=>props.theme.lightGray}
         onClick = {()=>{
-          setSellSelect('#fff');
-          setBuySelect('#C4C4C4');
-      }}/>
+          props.setSellSelect(true);
+          props.setBuySelect(false);
+      }}>
+        판매 회원가입
+      </Div>
     </SelectTabLayout>
   )
 }

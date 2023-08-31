@@ -6,7 +6,7 @@ import EmailText from '../atoms/EmailText'
 
 export default function EmailInput(props) {
   return (
-    <>
+    <div>
         <InputTitle title = "이메일" />
         <FlexBox>
             <InputBox onChange={(e)=>props.setEmailFirst(e.target.value)}
@@ -30,6 +30,6 @@ export default function EmailInput(props) {
         ? <small>{props.error.emailFirst.message}</small> 
         : (props.error.emailSecond) 
         ? <small>{(props.error.emailSecond.message)}</small>: null}
-    </>
+    </div>
   )
 }
