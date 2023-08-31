@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
 
-const SelectTabWidth= styled.div`
+export const SelectTab = styled.div`
     width : 100%;
     font-size : ${(props)=>props.theme.sm};
     font-weight : 500;
@@ -11,9 +10,4 @@ const SelectTabWidth= styled.div`
     border-radius : ${(props) => props.theme.radiusLg} ${(props) => props.theme.radiusLg} 0 0;
 `
 
-export default function SelectTab(props) {
-  // const {bgcolor, setBgcolor} = useState(`${(props) => props.theme.gray}`);
-  return (
-    <SelectTabWidth >{props.text}</SelectTabWidth>
-  )
-}
+export default SelectTab;

@@ -32,9 +32,14 @@ export default function PWConfirmInput(props) {
           setPasswordConfirm(e.target.value);
         }}>
           
-        <PwInput />
+        <PwInput 
+        {...props.register('pwconfirm',{
+          required : '비밀번호 확인을 입력해주세요'
+        })}/>
         {(confirm === false || passwordConfirm === '') ? <CheckImg src = {IconCheckOff}/> : <CheckImg src = {IconCheckOn}/>}
     </PwLabel>
+
+    {props.error.pwconfirm && <small>{props.error.pwconfirm.message}</small>}
     <ConfirmText 
       text = {
         passwordConfirm === '' ? null : 

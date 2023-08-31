@@ -2,15 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { CheckButton } from './Button'
 
-const ButtonCont = styled(CheckButton)`
+const JoinWithSignupButton = styled(CheckButton)`
     width: 100%;
+    font-size : ${(props)=>props.theme.md};
 `
 
-export default function JoinWithSignupButton(props) {
-
-  return (
-    <ButtonCont type="submit" >
-        {props.text}
-    </ButtonCont>
-  )
-}
+export default JoinWithSignupButton;
