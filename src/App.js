@@ -12,9 +12,10 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   
     return (
+      <>
       <Routes>
         <Route path="/" element = {<HomeTemplates />} />
-        <Route path="/login" element = {<LoginTemplates />} />
+        <Route path = "/login" element = {<LoginTemplates />} />
         <Route path="/signup" element = {<SignupTemplates />} />
         <Route path="/goodsDetail" element = {<GoodsDetailTemplates />} />
         <Route path="/cart" element = {<CartTemplates />} />
@@ -22,6 +23,7 @@ function App() {
         <Route path="/dashboard" element = {<DashBoardTemplates />} />
         <Route path="/productRegistration" element = {<ProductRegistrationTemplates />} />
       </Routes>
+      </>
   );
 }
 

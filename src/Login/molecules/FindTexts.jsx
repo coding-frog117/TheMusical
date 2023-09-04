@@ -6,12 +6,10 @@ import DivideBar from '../../Common/DivideBar';
 
 export default function FindTexts() {
   return (
-    <BrowserRouter>
     <FindTextLayout>
         <FindText text = "회원가입"/>
         <DivideBar text = "|" fontsize = "16px" margin = "14px"/>
         <FindText text = "비밀번호 찾기"/>
     </FindTextLayout>
-    </BrowserRouter>
   )
 }
