@@ -23,11 +23,15 @@ const baseUrl = "https://openmarket.weniv.co.kr/";
         }
     
     const useGet = (url) => {
+        const [response, setResponse] = useState('');
 
         const getFunc = async() =>{
             const res = await axios.get(baseUrl+url);
 
-            if (res.data){return res.data}
+            if (res.data){
+                setResponse(res.data);
+                return response
+            }
         }
 
         return getFunc;

@@ -8,6 +8,7 @@ export const SelectTab = styled.div`
     border : 1px solid #C4C4C4;
     border-bottom : 0px;
     border-radius : ${(props) => props.theme.radiusLg} ${(props) => props.theme.radiusLg} 0 0;
+    cursor : pointer;
 `
 
 export default SelectTab;

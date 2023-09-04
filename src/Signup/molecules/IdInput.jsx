@@ -6,6 +6,7 @@ import ConfirmButton from '../atoms/ConfirmButton'
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
 import styled from 'styled-components'
 import { usePost } from '../../hooks/useFetch'
+import { idDoubleCheck } from '../../apis/idDoubleCheck'
 
 const Label = styled.label`
   width : 100%;
@@ -16,23 +17,6 @@ export default function IdInput(props) {
   
   const [id, setId] = useState(''); 
   const [confirmtext, setConfirmtext] =useState('');
-
-  const doubleCheck = async(id) =>{
-    try{
-        const response = await postFunc(id);
-        console.log(response);
-
-        if (response){
-          return setConfirmtext("멋진 아이디네요:)");
-        } 
-        }
-    catch(error){
-        if (error.response.data.FAIL_Message === 'username 필드를 추가해주세요 :)'){
-          return setConfirmtext("아이디를 입력해주세요.");
-        } else {
-          return setConfirmtext("중복된 아이디입니다.");
-        }
-  }}
 
   return (
     <>
@@ -51,7 +35,7 @@ export default function IdInput(props) {
               />
           </Label>
 
-          <ConfirmButton onClick ={()=>{doubleCheck(id)}} type = "button">중복확인</ConfirmButton>
+          <ConfirmButton onClick ={()=>{idDoubleCheck(id, postFunc, setConfirmtext)}} type = "button">중복확인</ConfirmButton>
         </FlexBox>
         {props.error.id && <small>{props.error.id.message}</small>}
         <ConfirmText text = {confirmtext} color = {confirmtext ==="멋진 아이디네요:)" 
