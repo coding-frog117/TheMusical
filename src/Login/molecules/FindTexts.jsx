@@ -1,5 +1,4 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom';
 import FindTextLayout from '../atoms/FindTextLayout'
 import FindText from '../atoms/FindText'
 import DivideBar from '../../Common/DivideBar';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import BuyWithSellSelectTab from '../molecules/BuyWithSellSelectTab'
-import Form from '../atoms/Form'
+import BuyWithSellSelectTab from '../../Common/Signup with Login/BuyWithSellSelectTab'
+import Form from '../../Common/Signup with Login/Form'
 import IdInput from '../molecules/IdInput'
 import PWConfirmInput from '../molecules/PWConfirmInput'
 import NameInput from '../molecules/NameInput'
