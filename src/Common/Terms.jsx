@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import emptyCheckbox from '../assets/check-box.svg'
 import fillCheckbox from '../assets/check-fill-box.svg'
+import { useFormContext } from 'react-hook-form'
 
 const TermsContainer = styled.label`
   display : block;
@@ -27,12 +28,14 @@ const TermsText = styled.span`
 `
 
 export default function Terms(props) {
+  const {register} = useFormContext();
+
     return (
           <TermsContainer htmlFor = "terms">
             <TermsInp 
             id = "terms" 
             type='checkbox' 
-            {...props.register('terms',{
+            {...register('terms',{
               required : '약관을 동의해주세요.'
             })}
             />

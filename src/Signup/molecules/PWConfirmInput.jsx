@@ -1,4 +1,5 @@
 import {React, useState, useEffect} from 'react'
+import { useFormContext } from 'react-hook-form'
 import InputTitle from "../atoms/InputTitle"
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
 import PwLabel from '../atoms/PwLabel'
@@ -17,6 +18,7 @@ function confirmCheck(value, password, setConfirm){
 export default function PWConfirmInput(props) {
   const [passwordConfirm, setPasswordConfirm] = useState(''); 
   const [confirm, setConfirm] = useState(false);
+  const {register, formState : {errors}} = useFormContext();
 
   useEffect(()=>{
     passwordConfirm === props.password 
@@ -33,13 +35,13 @@ export default function PWConfirmInput(props) {
         }}>
           
         <PwInput 
-        {...props.register('pwconfirm',{
+        {...register('pwconfirm',{
           required : '비밀번호 확인을 입력해주세요'
         })}/>
         {(confirm === false || passwordConfirm === '') ? <CheckImg src = {IconCheckOff}/> : <CheckImg src = {IconCheckOn}/>}
     </PwLabel>
 
-    {props.error.pwconfirm && <small>{props.error.pwconfirm.message}</small>}
+    {errors.pwconfirm && <small>{errors.pwconfirm.message}</small>}
     <ConfirmText 
       text = {
         passwordConfirm === '' ? null : 

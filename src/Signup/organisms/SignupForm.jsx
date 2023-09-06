@@ -7,7 +7,7 @@ import NameInput from '../molecules/NameInput'
 import PhoneNumberInput from '../molecules/PhoneNumberInput'
 import EmailInput from '../molecules/EmailInput'
 import PasswordInput from '../molecules/PasswordInput'
-import {useForm} from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 import Terms from '../../Common/Terms'
 import styled from 'styled-components'
 import BusinessNumberInput from '../molecules/BusinessNumberInput'
@@ -25,18 +25,19 @@ export default function SignupForm(props) {
 
   const postFunc = usePost("accounts/signup/");
 
-  const [password , setPassword] = useState('');
-  const {register, handleSubmit, formState : {isSubmitting, errors}} = useForm();
+  const methods = useForm();
+  const {handleSubmit, formState : {isSubmitting}} = methods;
 
+  const [password , setPassword] = useState('');
   const [buySelect, setBuySelect] = useState(true);
   const [sellSelect, setSellSelect] = useState(false);
 
   return (
+    <FormProvider {...methods}>
       <SignForm
       onSubmit={
         handleSubmit(async(data)=>{
         await new Promise((r) => setTimeout(r, 1000));
-        console.log(data);
         signup(data, postFunc, buySelect);
       }
       )}>
@@ -45,29 +46,30 @@ export default function SignupForm(props) {
         <Form>
             {buySelect === true 
             ? <> 
-            <IdInput register = {register} error = {errors}/>
-            <PasswordInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
-            <PWConfirmInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
-            <NameInput register = {register} error = {errors}/>
-            <PhoneNumberInput register = {register} error = {errors}/>
-            <EmailInput register = {register} error = {errors}/>
+            <IdInput />
+            <PasswordInput password = {password} setPassword = {setPassword}/>
+            <PWConfirmInput password = {password} setPassword = {setPassword}/>
+            <NameInput />
+            <PhoneNumberInput />
+            <EmailInput />
             </>
           : <>
-            <IdInput register = {register} error = {errors}/>
-            <PasswordInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
-            <PWConfirmInput register = {register} password = {password} setPassword = {setPassword} error = {errors}/>
-            <NameInput register = {register} error = {errors}/>
-            <PhoneNumberInput register = {register} error = {errors}/>
-            <EmailInput register = {register} error = {errors}/>
-            <BusinessNumberInput register = {register} error = {errors}/>
-            <StoreNameInput register = {register} error = {errors}/>
+            <IdInput />
+            <PasswordInput password = {password} setPassword = {setPassword} />
+            <PWConfirmInput password = {password} setPassword = {setPassword} />
+            <NameInput />
+            <PhoneNumberInput />
+            <EmailInput />
+            <BusinessNumberInput />
+            <StoreNameInput />
             </>}
             
         </Form>
 
-          <Terms text = "OO마켓의 이용약관 및 개인정보처리방침에 대한 내용을 확인하였고 동의합니다." register = {register}/>
+          <Terms text = "OO마켓의 이용약관 및 개인정보처리방침에 대한 내용을 확인하였고 동의합니다." />
           <JoinWithSignupButton disabled={isSubmitting}>가입하기</JoinWithSignupButton>
 
       </SignForm>
+    </FormProvider>
   )
 }

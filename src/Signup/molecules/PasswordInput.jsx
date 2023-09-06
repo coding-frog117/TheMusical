@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 import PwLabel from '../atoms/PwLabel'
 import PwInput from '../atoms/PwInput'
 import CheckImg from '../atoms/CheckImg'
@@ -14,6 +15,9 @@ function checkPw(value, setCheck){
 
 export default function PasswordInput(props) {
     const [check, setCheck] = useState(false);
+
+    const {register, formState : {errors}} = useFormContext();
+
   return (
     <div>
     <InputTitle title = "비밀번호" htmlFor = "password"/>
@@ -25,7 +29,7 @@ export default function PasswordInput(props) {
           id = "password"
           type='text'
           {
-            ...props.register("password",{
+            ...register("password",{
               required : "비밀번호를 입력해주세요",
               minLength : {
                 value : 8,
@@ -41,7 +45,7 @@ export default function PasswordInput(props) {
         />
         {check === true ? <CheckImg src = {IconCheckOn}/> : <CheckImg src = {IconCheckOff}/>}
     </PwLabel>
-    {props.error.password && <small>{props.error.password.message}</small>}
+    {errors.password && <small>{errors.password.message}</small>}
     </div>
   )
 }
