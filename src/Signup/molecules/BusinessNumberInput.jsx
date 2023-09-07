@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { usePost } from '../../hooks/useFetch'
 import ConfirmText from '../../Common/Signup with Login/ConfirmText'
 import { businessDoubleCheck } from '../../apis/businessDoubleCheck'
+import { useFormContext } from 'react-hook-form'
 
 const Div = styled.div`
     margin-top : 50px;
@@ -22,6 +23,8 @@ export default function BusinessNumberInput(props) {
   const [businessNumber, setBusinessNumber] = useState('');
   const [confirmtext, setConfirmtext] = useState('');
 
+  const {register, formState : {errors}} = useFormContext();
+
   return (
     <Div>
     <InputTitle title = "사업자등록번호" />
@@ -32,7 +35,7 @@ export default function BusinessNumberInput(props) {
               (e)=>{setBusinessNumber(e.target.value)}}>
             <InputBox 
               id = "business"
-              {...props.register("business",{
+              {...register("business",{
                 required : '사업자등록번호를 입력해주세요.',
                 pattern : {
                     value : '[0-9]',
@@ -42,7 +45,9 @@ export default function BusinessNumberInput(props) {
             </Label>
           <ConfirmButton onClick={()=>businessDoubleCheck(businessNumber, postFunc, setConfirmtext)} type = "button">인증</ConfirmButton>
         </FlexBox>
-        {props.error.business && <small>{props.error.business.message}</small>}
+        
+        {errors.business && <small>{errors.business.message}</small>}
+
         <ConfirmText text = {confirmtext} color = {confirmtext ==="사용 가능한 사업자등록번호입니다." 
         ? (props)=>props.theme.mainColor 
         : (props)=>props.theme.red}/>
