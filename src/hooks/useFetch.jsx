@@ -14,8 +14,8 @@ const baseUrl = "https://openmarket.weniv.co.kr/";
                 data : postData
             });
             
-            if (res.data) {
-                setResponse(res.data);
+            if (res) {
+                setResponse(res);
                 return response;
             }};
             

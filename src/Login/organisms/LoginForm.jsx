@@ -7,6 +7,8 @@ import JoinWithSignupButton from '../../Common/Signup with Login/JoinWithSignupB
 import { useForm, FormProvider } from 'react-hook-form'
 import login from '../../apis/login'
 import { usePost } from '../../hooks/useFetch'
+import { depositToken } from '../../store'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function LoginForm(props) {
   const [buySelect, setBuySelect] = useState(true);
@@ -18,6 +20,10 @@ export default function LoginForm(props) {
   const methods = useForm();
   const {handleSubmit, formState : {isSubmitting}} = methods;
 
+  let dispatch = useDispatch();
+  let a = useSelector((state)=>state);
+
+  console.log(a);
   return (
     <>
         <BuyWithSellSelectTab buySelect = {buySelect} setBuySelect = {setBuySelect} sellSelect = {sellSelect} setSellSelect = {setSellSelect}/>
@@ -27,14 +33,15 @@ export default function LoginForm(props) {
                 handleSubmit(async(data)=>{
                   await new Promise((r) => setTimeout(r, 1000));
                   console.log(data);
-                  login(data, postFunc, buySelect, setWarningText);
+                  login(data, postFunc, buySelect, setWarningText, dispatch);
+                  
                   })}>
                 
               <InputForm />
               
               <WarningText text={warningText}/>
               <JoinWithSignupButton disabled = {isSubmitting}>
-                가입하기
+                로그인
               </JoinWithSignupButton>
             </Form>
         </FormProvider>

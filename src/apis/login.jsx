@@ -1,4 +1,6 @@
-export default async function login(data, postFunc, buySelect, setWarningText){
+import { depositToken } from "../store";
+
+export default async function login(data, postFunc, buySelect, setWarningText, dispatch){
     let postId = data.id;
     let postPassword = data.password;
 
@@ -16,8 +18,9 @@ export default async function login(data, postFunc, buySelect, setWarningText){
 
     try{
         let account = await postFunc(buySelect === true ? buyerData : sellerData);
-        console.log(account);
         alert(postId+'님 반갑습니다*^^*');
+        dispatch(depositToken(account.data.token));
+
         
     } catch(error) {
         console.log(error);
