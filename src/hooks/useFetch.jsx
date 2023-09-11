@@ -1,11 +1,8 @@
 import axios from 'axios'
-import { useState } from 'react';
 
 const baseUrl = "https://openmarket.weniv.co.kr/";
 
     const usePost = (url) =>{
-        const [response, setResponse] = useState('');
-
         const postFunc = async(postData) =>{
 
             const res = await axios({
@@ -15,22 +12,18 @@ const baseUrl = "https://openmarket.weniv.co.kr/";
             });
             
             if (res) {
-                setResponse(res);
-                return response;
+                return res;
             }};
             
             return postFunc;
         }
     
     const useGet = (url) => {
-        const [response, setResponse] = useState('');
-
         const getFunc = async() =>{
             const res = await axios.get(baseUrl+url);
 
-            if (res.data){
-                setResponse(res.data);
-                return response
+            if (res){
+                return res
             }
         }
 

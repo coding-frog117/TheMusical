@@ -7,15 +7,21 @@ import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
 import { Provider } from "react-redux";
 import store from './store.js'
+import persistStore from "redux-persist/es/persistStore";
+import { PersistGate } from "redux-persist/integration/react";
+
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store = {store}>
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ThemeProvider>
+    <PersistGate loading = {null} persistor={persistor}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </PersistGate>
   </Provider>,
   document.getElementById("root"),
 );
