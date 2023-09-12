@@ -1,6 +1,8 @@
-import { depositToken } from "../store";
+import { useEffect } from "react";
+import { depositToken } from "../store/userSlice";
 
 export default async function login(data, postFunc, buySelect, setWarningText, dispatch){
+
     let postId = data.id;
     let postPassword = data.password;
 
@@ -18,16 +20,15 @@ export default async function login(data, postFunc, buySelect, setWarningText, d
 
     try{
         let account = await postFunc(buySelect === true ? buyerData : sellerData);
-        alert(postId+'님 반갑습니다*^^*');
-        dispatch(depositToken(account.data.token));
-
+        const token = account.data.token;
+        dispatch(depositToken(token));
         
     } catch(error) {
         console.log(error);
         if (error.response.data.FAIL_Message === '로그인 정보가 없습니다.'){
             setWarningText('아이디 또는 비밀번호를 확인해주세요.')
         } else{
-            setWarningText(Object.values(error.response.data)[0]);
+            setWarningText(Object.values(error.response.data)[0]); 
         }
 
     }

@@ -21,9 +21,9 @@ export default function LoginForm(props) {
   const {handleSubmit, formState : {isSubmitting}} = methods;
 
   let dispatch = useDispatch();
-  let a = useSelector((state)=>state);
 
-  console.log(a);
+  
+  
   return (
     <>
         <BuyWithSellSelectTab buySelect = {buySelect} setBuySelect = {setBuySelect} sellSelect = {sellSelect} setSellSelect = {setSellSelect}/>
@@ -32,7 +32,6 @@ export default function LoginForm(props) {
               onSubmit = {
                 handleSubmit(async(data)=>{
                   await new Promise((r) => setTimeout(r, 1000));
-                  console.log(data);
                   login(data, postFunc, buySelect, setWarningText, dispatch);
                   
                   })}>

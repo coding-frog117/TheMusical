@@ -12,6 +12,7 @@ import { idDoubleCheck } from '../../apis/idDoubleCheck'
 const Label = styled.label`
   width : 100%;
 `
+
   
 export default function IdInput() {
   const postFunc = usePost('accounts/signup/valid/username/'); 
@@ -20,7 +21,7 @@ export default function IdInput() {
   
   const [id, setId] = useState(''); 
   const [confirmtext, setConfirmtext] =useState('');
-
+  
   return (
     <>
        <InputTitle title = "아이디" />

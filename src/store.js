@@ -1,20 +1,25 @@
-import {configureStore, createSlice} from '@reduxjs/toolkit'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
+import storage from 'redux-persist/lib/storage';
+import { userSlice } from './store/userSlice';
+import { persistReducer } from 'redux-persist';
+import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 
-const userToken = createSlice({
-    name : 'token',
-    initialState : {value : ''},
-    reducers :{
-        depositToken(state, a){
-             state.value = a.payload
-        },
-    }
+const reducers = combineReducers({
+    user : userSlice.reducer,
 })
 
-export let { depositToken } = userToken.actions
+const persistConfig = {
+    key : 'root',
+    storage,
+    whitelist : ['user'],
+}
 
-export default configureStore({
-    reducer : {
-        userToken : userToken.reducer,
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-    }
+const store = configureStore({
+    reducer : persistedReducer,
+    middleware : [thunk, logger],
 })
+
+export default store;
