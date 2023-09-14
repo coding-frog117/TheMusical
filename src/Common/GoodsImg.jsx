@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from '../assets/goodsImg.jpg'
 
 export const ImgLayout = styled.img`
     width : ${(props)=>props.size};
@@ -11,6 +10,6 @@ export const ImgLayout = styled.img`
 `
 export default function GoodsImg(props) {
   return (
-    <ImgLayout src = {Img} size = {props.size} margin = {props.margin} />
+    <ImgLayout src = {props.src} size = {props.size} margin = {props.margin} />
   )
 }

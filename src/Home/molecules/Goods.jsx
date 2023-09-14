@@ -1,19 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import GoodsImg from '../../Common/GoodsImg'
 import GoodsSeller from '../atoms/GoodsSeller'
 import GoodsName from '../atoms/GoodsName'
 import GoodsPrice from '../atoms/GoodsPrice'
 import GoodsPriceCount from '../../Common/GoodsPriceCount'
+import { useGet } from '../../hooks/useFetch'
 
 export default function Goods() {
+  const [itemList , setItemList] = useState([]);
+  const getFunc = useGet('products/');
+
+  useEffect(()=>{
+      getFunc().then((res)=>{
+        setItemList(...[res.data.results]);
+    })
+  },[]);
+
   return (
     <>
-    {[1,2,3,4,5,6,7].map(()=>(
-              <li>
-                <GoodsImg size= "380px" margin = "0 0 16px"/>
-                <GoodsSeller text="개발자 송개굴" />
-                <GoodsName text="개구리 키보드" />
-                <GoodsPrice text="23,000"/>
+    {itemList.map((item,index)=>(
+              <li key={index}>
+                <GoodsImg size= "380px" margin = "0 0 16px" src = {item.image}/>
+                <GoodsSeller text = {item.store_name} />
+                <GoodsName text={item.product_name} />
+                <GoodsPrice text={item.price}/>
                 <GoodsPriceCount />
               </li>
     ))
