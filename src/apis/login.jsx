@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { depositToken } from "../store/userSlice";
 
-export default async function login(data, postFunc, buySelect, setWarningText, dispatch){
+export default async function login(data, postFunc, buySelect, setWarningText, dispatch,navigate){
 
     let postId = data.id;
     let postPassword = data.password;
@@ -22,6 +21,7 @@ export default async function login(data, postFunc, buySelect, setWarningText, d
         let account = await postFunc(buySelect === true ? buyerData : sellerData);
         const token = account.data.token;
         dispatch(depositToken(token));
+        navigate('/');
         
     } catch(error) {
         console.log(error);

@@ -9,6 +9,7 @@ import login from '../../apis/login'
 import { usePost } from '../../hooks/useFetch'
 import { depositToken } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function LoginForm(props) {
   const [buySelect, setBuySelect] = useState(true);
@@ -22,7 +23,7 @@ export default function LoginForm(props) {
 
   let dispatch = useDispatch();
 
-  
+  const navigate = useNavigate();
   
   return (
     <>
@@ -32,7 +33,7 @@ export default function LoginForm(props) {
               onSubmit = {
                 handleSubmit(async(data)=>{
                   await new Promise((r) => setTimeout(r, 1000));
-                  login(data, postFunc, buySelect, setWarningText, dispatch);
+                  login(data, postFunc, buySelect, setWarningText, dispatch, navigate);
                   
                   })}>
                 

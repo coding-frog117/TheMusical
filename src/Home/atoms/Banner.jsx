@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import BannerImg from '../../assets/bannerImg.jpg'
+import { useGet } from '../../hooks/useFetch'
 
 const Img = styled.img`
     width : 100%;
@@ -8,6 +9,18 @@ const Img = styled.img`
 `
 
 export default function Banner() {
+  const getFunc = async()=>{
+      const response = await fetch('http://api.kcisa.kr/openapi/CNV_060/request?serviceKey=ff7fa7df-4ed4-41d8-9b05-24ab747780e9&numOfRows=10&pageNo=1')
+        .then((res)=>{
+          return res;
+        })
+  } 
+
+  useEffect(()=>{
+    console.log(getFunc());
+
+  },[])
+
   return (
     <Img src={BannerImg}/>
   )
