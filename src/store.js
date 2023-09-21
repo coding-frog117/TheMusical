@@ -1,6 +1,7 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage';
 import { userSlice } from './store/userSlice';
+import {publicToken} from './store/publicUserSlice';
 import { persistReducer } from 'redux-persist';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
@@ -18,7 +19,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = configureStore({
-    reducer : persistedReducer,
+    reducer : {
+        persistedReducer,
+        publicToken : publicToken.reducer,
+    },
     middleware : [thunk, logger],
 })
 

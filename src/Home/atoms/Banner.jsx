@@ -11,9 +11,8 @@ const Img = styled.img`
 export default function Banner() {
   const getFunc = async()=>{
       const response = await fetch('http://api.kcisa.kr/openapi/CNV_060/request?serviceKey=ff7fa7df-4ed4-41d8-9b05-24ab747780e9&numOfRows=10&pageNo=1')
-        .then((res)=>{
-          return res;
-        })
+      const result = await response.json();
+      return result;
   } 
 
   useEffect(()=>{

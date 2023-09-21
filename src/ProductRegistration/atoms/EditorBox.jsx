@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
 import styled from 'styled-components'
 
 const Div = styled.div`
@@ -10,8 +11,23 @@ const Div = styled.div`
     font-size : 48px;
     padding : 320px 544px;
 `
+
+const TextArea = styled.textarea`
+  width : 100%;
+  font-size : ${(props)=>props.theme.md};
+`
+
 export default function EditorBox(props) {
+  const {register, formState : {errors}} = useFormContext();
+  const [text, setText] = useState(false);
+
   return (
-    <Div>{props.text}</Div>
+    <>
+    {text === true 
+      ? <TextArea {...register("product_info",{
+        required : '상세정보를 입력해주세요'
+      })}/> 
+      : <Div onClick={()=>{setText(true)}}>{props.text}</Div>}
+    </>
   )
 }

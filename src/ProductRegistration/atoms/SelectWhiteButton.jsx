@@ -12,6 +12,7 @@ const Button = styled.button`
 `
 export default function SelectWhiteButton(props){
     return(
-        <Button height = {props.height}>{props.text}</Button>
+        <Button 
+        height = {props.height} >{props.text}</Button>
         )
 }

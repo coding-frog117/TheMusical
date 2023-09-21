@@ -6,6 +6,7 @@ import DeliveryFee from '../molecules/DeliveryFee'
 import DeliveryOptions from '../molecules/DeliveryOptions'
 import Stock from '../molecules/Stock'
 import styled from 'styled-components'
+import { useFormContext } from 'react-hook-form'
 
 const Div = styled.div`
     display : flex;
@@ -14,6 +15,7 @@ const Div = styled.div`
 `
 
 export default function ProductInfo() {
+  
   return (
     <Div>
     <ProductName />

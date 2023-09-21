@@ -8,7 +8,6 @@ import DashBoardTemplates from './DashBoard/templates/DashBoardTemplates';
 import ProductRegistrationTemplates from "./ProductRegistration/templates/ProductRegistrationTemplates";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-
 function App() {
   
     return (

@@ -1,4 +1,4 @@
-async function signup(data, postFunc, buySelect){
+async function signup(data, buyerPostFunc, sellerPostFunc, buySelect){
 
     const username = data.id;
     const password = data.password;
@@ -27,8 +27,14 @@ async function signup(data, postFunc, buySelect){
     };
 
     try{
-      let account = await postFunc(buySelect === true ? buyerData : sellerData);
-      console.log(account);
+      if (buySelect === true){
+        let account = await buyerPostFunc(buyerData);
+        console.log(account);
+      } else {
+        let account = await sellerPostFunc(sellerData);
+        console.log(account);
+      }
+      
       alert(name+'님 반갑습니다*^^* 회원가입이 완료되었습니다.');
 
     } catch(error) {

@@ -23,7 +23,8 @@ import { signup } from '../../apis/signup'
 
 export default function SignupForm(props) {
 
-  const postFunc = usePost("accounts/signup/");
+  const buyerPostFunc = usePost("accounts/signup/");
+  const sellerPostFunc = usePost("accounts/signup_seller/");
 
   const methods = useForm();
   const {handleSubmit, formState : {isSubmitting}} = methods;
@@ -38,7 +39,7 @@ export default function SignupForm(props) {
       onSubmit={
         handleSubmit(async(data)=>{
         await new Promise((r) => setTimeout(r, 1000));
-        signup(data, postFunc, buySelect);
+        signup(data, buyerPostFunc, sellerPostFunc, buySelect);
       }
       )}>
 

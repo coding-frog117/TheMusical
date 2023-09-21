@@ -14,6 +14,9 @@ const Button = styled.button`
 
 export default function SelectGreenButton(props){
     return(
-    <Button height = {props.height} margin = {props.margin}>{props.text}</Button>
+    <Button
+     height = {props.height} 
+     margin = {props.margin}
+     >{props.text}</Button>
     )
 }
