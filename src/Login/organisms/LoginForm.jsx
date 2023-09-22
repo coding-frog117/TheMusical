@@ -16,6 +16,9 @@ export default function LoginForm(props) {
   const [sellSelect, setSellSelect] = useState(false);
   const [warningText , setWarningText] = useState('');
 
+  const selector = useSelector((state)=>{return state});
+  console.log(selector)
+
   const postFunc = usePost('accounts/login/');
 
   const methods = useForm();
