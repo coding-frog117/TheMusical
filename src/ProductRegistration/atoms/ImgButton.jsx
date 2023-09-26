@@ -8,6 +8,7 @@ const Label = styled.label`
     height : 50px;
     display: inline-block;
     background-image : url(${IconImg});
+    cursor : pointer;
 `
 
 export default function ImgButton(props) {

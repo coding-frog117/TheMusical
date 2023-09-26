@@ -8,11 +8,20 @@ const Span = styled.div`
     margin-top : 50px;
 `
 
+const SaveButton = styled(SelectGreenButton)`
+  height : 60px;
+  margin : 0 0 0 10px;
+` 
+
+const CancelButton = styled(SelectWhiteButton)`
+  height : 60px;
+`
+
 export default function SaveAndCancelBtn() {
   return (
     <Span>
-        <SelectWhiteButton text= "취소" height = "60px"/>
-        <SelectGreenButton text= "저장하기" margin = "0 0 0 10px" height = "60px"/>
+        <CancelButton>취소</CancelButton>
+        <SaveButton>저장하기</SaveButton>
     </Span>
   )
 }

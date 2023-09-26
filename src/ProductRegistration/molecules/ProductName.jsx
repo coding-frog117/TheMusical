@@ -7,15 +7,21 @@ import { useFormContext } from 'react-hook-form'
 
 export default function ProductName() {
   const [count, setCount] = useState(0); 
-  const {formState : {errors}} = useFormContext();
+  const {register, formState : {errors}} = useFormContext();
 
   return (
    <div>
     <GrayTitleText text = "상품명"/>
-    <ProductInput width = "740px" count = {count} setCount= {setCount} radius = {(props)=>props.theme.radius}
-    
-    />
-    <InlineText text = {`${count}/20`} fontSize = "14px" color = {(props)=>props.theme.lightGray}/>
+    <ProductInput 
+      onChange={(e)=>{
+        setCount(e.target.value.length);
+        console.log(e.target.value)}}
+      {
+        ...register('product_name',{
+        required : '상품 이름을 입력해주세요',
+        })
+      }/>
+    <InlineText fontSize = "14px" color = {(props)=>props.theme.lightGray}/>
     
     </div>
   )
