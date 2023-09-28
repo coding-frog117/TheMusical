@@ -7,14 +7,20 @@ const Div = styled.div`
     margin-top : 140px;
 `
 
-export default function TabButtons() {
-    const [button , setButton] = useState(false);
+export default function TabButtons(props) {
+    
+  const tabContent = ['상품 설명','상세 내용','배송 안내','Q&A'];
+
   return (
-    <Div>
-        <TabButton text = "버튼" button = {button} setButton = {setButton} onClick={()=>setButton(0)}/>
-        <TabButton text = "버튼" onClick={()=>setButton(1)}/>
-        <TabButton text = "버튼" onClick={()=>setButton(2)}/>
-        <TabButton text = "버튼" onClick={()=>setButton(3)}/>
+    <Div >
+        {tabContent.map((item,index)=>{
+          return(
+          <TabButton onClick = {()=>{props.setButton(index)}}>
+            {item}
+          </TabButton>
+        )}
+      )
+      }
     </Div>
   )
 }

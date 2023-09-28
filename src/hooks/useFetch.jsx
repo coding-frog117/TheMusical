@@ -38,21 +38,21 @@ const baseUrl = "https://openmarket.weniv.co.kr/";
     
 
     const useGet = (url) => {
-        const getFunc = async() =>{
+        const getFunc = async(token) =>{
             let res = null;
-            // if (token === undefined){
+            if (token === undefined){
                 res = await axios.get(baseUrl+url);
             
-            // } else {
+            } else {
             
-            //     res = await axios({
-            //         url : baseUrl+url,
-            //         method : 'get',
-            //         headers : {
-            //             'Authorization' : `JWT ${token}`,
-            //         }
-            //     })
-            // }
+                res = await axios({
+                    url : baseUrl+url,
+                    method : 'get',
+                    headers : {
+                        'Authorization' : `JWT ${token}`,
+                    }
+                })
+            }
             if (res){
                 return res
             }

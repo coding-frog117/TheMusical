@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import styled from 'styled-components'
 
-const Button = styled.button`
+const TabButton = styled.button`
     width : 320px;
     height : 60px;
     color : ${(props)=>props.theme.darkGray};
@@ -16,12 +16,4 @@ const Button = styled.button`
       font-weight : 700;
     }
 ` 
-export default function TabButton(props) {
-
-
-  return (
-    <Button button = {props.button} setButton ={props.setButton}>
-        {props.text}
-    </Button>
-  )
-}
+export default TabButton;

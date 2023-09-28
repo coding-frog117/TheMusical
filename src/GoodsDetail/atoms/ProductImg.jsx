@@ -8,6 +8,6 @@ const Img = styled.img`
 
 export default function ProductImg(props) {
   return (
-    <Img />
+    <Img src = {props.data.image}/>
   )
 }

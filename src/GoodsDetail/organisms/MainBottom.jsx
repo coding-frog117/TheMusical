@@ -4,10 +4,13 @@ import TabButtons from '../molecules/TabButtons';
 import MainCont from '../atoms/MainCont'
 
 export default function MainBottom() {
+
+  const [button , setButton] = useState(0);
+
     return (
     <>
-        <TabButtons />
-        <MainCont />
+        <TabButtons button = {button} setButton = {setButton}/>
+        <MainCont button = {button} setButton = {setButton} />
     </>
   )
 }
