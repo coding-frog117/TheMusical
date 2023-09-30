@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element = {<HomeTemplates />} />
         <Route path = "/login" element = {<LoginTemplates />} />
         <Route path="/signup" element = {<SignupTemplates />} />
-        <Route path="/goodsDetail" element = {<GoodsDetailTemplates />} />
+        <Route path="/productDetail/:id" element = {<GoodsDetailTemplates />} />
         <Route path="/cart" element = {<CartTemplates />} />
         <Route path="/order" element = {<OrderTemplates />} />
         <Route path="/dashboard" element = {<DashBoardTemplates />} />

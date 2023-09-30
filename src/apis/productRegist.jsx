@@ -5,6 +5,7 @@
     try{
       if (res){
         console.log(res); 
+        console.log(res.data.product_id)
       }
     }
       catch(error){

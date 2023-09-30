@@ -4,14 +4,14 @@ import ImgButton from '../atoms/ImgButton'
 import GrayTitleText from '../atoms/GrayTitleText'
 import styled from 'styled-components'
 
-export default function ProductImage(props) {
-
-  const [imageUrl , setImageUrl] = useState('');
-
-  const Img = styled.img`
+const Img = styled.img`
     width : 454px;
     height : 454px;
   `
+
+export default function ProductImage(props) {
+
+  const [imageUrl , setImageUrl] = useState('');
 
   return (
     <div>

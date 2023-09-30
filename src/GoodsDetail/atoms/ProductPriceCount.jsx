@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const Span = styled.span`
     font-size : ${(props)=>props.theme.md};
-    position : relative;
-    top : 15px;
+    height : 45px;
+    line-height : 45px;
 `
 
 export default function ProductPriceCount() {

@@ -10,6 +10,7 @@ const Div = styled.div`
     color : ${(props)=>props.theme.lightGray};
     font-size : 48px;
     padding : 320px 544px;
+    cursor : pointer;
 `
 
 const TextArea = styled.textarea`
