@@ -21,6 +21,6 @@ export default function Banner() {
   // },[])
 
   return (
-    <Img src={BannerImg}/>
+    <Img />
   )
 }

@@ -75,6 +75,7 @@ const baseUrl = "https://openmarket.weniv.co.kr/";
         });
 
             if (res){
+                console.log(res)
                 return res
             }
         }

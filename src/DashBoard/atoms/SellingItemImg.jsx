@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-
-const Img = styled.img`
+const SellingItemImg = styled.img`
     width : 70px;
     height : 70px;
     border-radius : 50%;
+    cursor : pointer;
 `
-export default function SellingItemImg(props) {
-  return (
-    <Img src = {props.src}/>
-  )
-}
+export default SellingItemImg;
