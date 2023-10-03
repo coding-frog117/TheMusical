@@ -7,7 +7,6 @@ import { useForm , FormProvider } from 'react-hook-form'
 import { usePost, useDelete } from '../../hooks/useFetch'
 import { productRegist } from '../../apis/productRegist'
 import { useSelector } from 'react-redux'
-import { productDelete } from '../../apis/productDelete'
 
 const Form = styled.form`
   margin : 0 auto;
@@ -22,7 +21,6 @@ export default function ProductMain() {
   const [image, setImage] = useState('');
 
   const postFunc = usePost('products/');
-  const deleteFunc = useDelete('products/key');
 
   return (
     <>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = styled.button`
+const DeleteButton = styled.button`
     width : 80px;
     height : 40px;
     border-radius : ${(props)=>props.theme.radius};
@@ -15,8 +15,4 @@ const Button = styled.button`
     }
 
 `
-export default function DeleteButton(props) {
-  return (
-    <Button>{props.text}</Button>
-  )
-}
+export default DeleteButton;
