@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { productSearch } from '../../apis/productSearch'
 
 const Text = styled.input`
     font-size : ${(props)=>props.theme.sm};
@@ -9,8 +10,12 @@ const Text = styled.input`
     height : 42px;
     line-height : 42px;
 `
+
 export default function SearchBarText(props) {
+
   return (
-    <Text placeholder={props.text}/>
+    <Text 
+    placeholder={props.text} 
+    onChange={(e)=>{productSearch(e.target.value, props.setSearchList)}}/>
   )
 }

@@ -4,9 +4,10 @@ import { HeaderBar } from '../atoms/HeaderBar'
 import HeaderLogo from '../atoms/HeaderLogo'
 import SearchBar from '../molecules/SearchBar'
 import Buttons from '../molecules/Buttons'
+import styled from 'styled-components'
 
 export default function Header() {
-  
+
   return (
     <HomeLayout>
       <HeaderBar>
