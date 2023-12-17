@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
-    name : 'token',
-    initialState : {value : ''},
-    reducers :{
-        depositToken(state, a){
-             state.value = a.payload
-        },
-    }
-})
+	name: 'token',
+	initialState: { value: '' },
+	reducers: {
+		depositToken(state, a) {
+			state.value = a.payload;
+		},
+	},
+});
 
-export let { depositToken } = userSlice.actions
+export let { depositToken } = userSlice.actions;
