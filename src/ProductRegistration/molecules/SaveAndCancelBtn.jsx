@@ -1,27 +1,37 @@
-import React from 'react'
-import styled from 'styled-components'
-import SelectGreenButton from '../atoms/SelectGreenButton'
-import SelectWhiteButton from '../atoms/SelectWhiteButton'
+import React from 'react';
+import styled from 'styled-components';
+import SelectGreenButton from '../atoms/SelectGreenButton';
+import SelectWhiteButton from '../atoms/SelectWhiteButton';
+import { useNavigate } from 'react-router-dom';
 
 const Span = styled.div`
-    text-align : right;
-    margin-top : 50px;
-`
+	text-align: right;
+	margin-top: 50px;
+`;
 
 const SaveButton = styled(SelectGreenButton)`
-  height : 60px;
-  margin : 0 0 0 10px;
-` 
+	height: 60px;
+	margin: 0 0 0 10px;
+`;
 
 const CancelButton = styled(SelectWhiteButton)`
-  height : 60px;
-`
+	height: 60px;
+`;
 
 export default function SaveAndCancelBtn() {
-  return (
-    <Span>
-        <CancelButton>취소</CancelButton>
-        <SaveButton>저장하기</SaveButton>
-    </Span>
-  )
+	const navigator = useNavigate();
+
+	return (
+		<Span>
+			<CancelButton
+				type="button"
+				onClick={() => {
+					navigator(-1);
+				}}
+			>
+				취소
+			</CancelButton>
+			<SaveButton type="submit">저장하기</SaveButton>
+		</Span>
+	);
 }
