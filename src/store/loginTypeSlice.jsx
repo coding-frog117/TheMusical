@@ -5,7 +5,7 @@ export const loginTypeSlice = createSlice({
 	initialState: { value: '' },
 	reducers: {
 		depositLoginType(state, a) {
-			state.value = a.payload;
+			state.value = a
 		},
 	},
 });

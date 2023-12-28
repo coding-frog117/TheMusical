@@ -4,8 +4,10 @@ import { userSlice } from './store/userSlice';
 import { loginTypeSlice } from './store/loginTypeSlice';
 import { publicToken } from './store/publicUserSlice';
 import { persistReducer } from 'redux-persist';
+import { totalCartPriceSlice } from './store/totalCartPriceSlice';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
+import { deliveryFeeSlice } from './store/deliveryFeeSlice';
 
 const reducers = combineReducers({
 	token: userSlice.reducer,
@@ -23,6 +25,8 @@ const store = configureStore({
 	reducer: {
 		persistedReducer,
 		publicToken: publicToken.reducer,
+		totalCartPriceSlice: totalCartPriceSlice.reducer,
+		deliveryFeeSlice: deliveryFeeSlice.reducer,
 	},
 	middleware: [thunk, logger],
 });
