@@ -17,9 +17,11 @@ export default function ItemInfo(props) {
 		});
 	}, []);
 
-	if (data != undefined) {
-		dispatch(addFee(data.shipping_fee));
-	}
+	useEffect(() => {
+		if (data !== undefined) {
+			dispatch(addFee(data.shipping_fee));
+		}
+	}, [data, dispatch]);
 
 	return (
 		<>

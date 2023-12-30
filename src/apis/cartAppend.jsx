@@ -3,7 +3,6 @@ export const cartAppend = async (postFunc, formData, token, navigator) => {
 
 	try {
 		if (res) {
-			console.log(res);
 			if (window.confirm('상품이 추가되었습니다. 장바구니로 이동하시겠습니까?')) {
 				navigator('/cart');
 			} else {

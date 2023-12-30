@@ -30,7 +30,7 @@ export default function MainTop() {
 			<div>
 				<ProductInformation data={data} />
 				<BorderLine margin="0 0 30px" />
-				<CountControllButton count={count} setCount={setCount} />
+				<CountControllButton count={count} setCount={setCount} id={id} />
 				<BorderLine margin="30px 0 0" />
 				<ProductPriceInfo data={data} count={count} />
 				<Buttons count={count} />

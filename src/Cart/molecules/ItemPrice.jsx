@@ -5,7 +5,6 @@ import SmallButton from '../atoms/SmallButton';
 import { useGet } from '../../hooks/useFetch';
 import { changePrice } from '../../store/totalCartPriceSlice';
 import { useDispatch } from 'react-redux';
-import { addFee } from '../../store/deliveryFeeSlice';
 
 export default function ItemPrice(props) {
 	const getFunc = useGet(`products/${props.id}`);
@@ -18,9 +17,11 @@ export default function ItemPrice(props) {
 		});
 	}, []);
 
-	if (props.count != undefined) {
-		dispatch(changePrice(Number(props.count * price)));
-	}
+	useEffect(() => {
+		if (props.count) {
+			dispatch(changePrice(Number(props.count * price)));
+		}
+	}, [props.count, dispatch, price]);
 
 	return (
 		<ItemPriceBox>
