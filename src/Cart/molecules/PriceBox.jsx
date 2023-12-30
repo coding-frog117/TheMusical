@@ -18,8 +18,16 @@ export default function PriceBox(props) {
 		return state.deliveryFeeSlice.value;
 	});
 
+	const notSelectedPrice = useSelector((state) => {
+		return state.selectedItemSlice.item;
+	});
+
+	const notSelectedFee = useSelector((state) => {
+		return state.selectedItemSlice.fee;
+	});
+
 	const totalPrice = useSelector((state) => {
-		return state.totalCartPriceSlice.value + state.deliveryFeeSlice.value;
+		return totalItemPrice - notSelectedPrice + (totalFee - notSelectedFee);
 	});
 
 	return (
@@ -28,7 +36,7 @@ export default function PriceBox(props) {
 				<Text text="총 상품금액" fontSize={(props) => props.theme.sm} />
 				<span>
 					<InlineText
-						text={totalItemPrice.toLocaleString()}
+						text={(totalItemPrice - notSelectedPrice).toLocaleString()}
 						fontSize={(props) => props.theme.xLg}
 						fontWeight={(props) => props.theme.bold}
 					/>
@@ -52,7 +60,7 @@ export default function PriceBox(props) {
 				<Text text="배송비" fontSize={(props) => props.theme.sm} />
 				<span>
 					<InlineText
-						text={totalFee.toLocaleString()}
+						text={(totalFee - notSelectedFee).toLocaleString()}
 						fontSize={(props) => props.theme.xLg}
 						fontWeight={(props) => props.theme.bold}
 					/>

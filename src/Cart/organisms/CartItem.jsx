@@ -12,9 +12,15 @@ export default function CartItem({ item, index, arr, setArr, change, setChange, 
 
 	return (
 		<ItemBox>
-			<RadioButton btnCheck={btnCheck} setBtnCheck={setBtnCheck} id={item.product_id} />
+			<RadioButton
+				btnCheck={btnCheck}
+				setBtnCheck={setBtnCheck}
+				id={item.product_id}
+				count={count}
+				setCount={setCount}
+			/>
 			<ItemInfo id={item.product_id} />
-			<CountControllButton count={count} setCount={setCount} id={item.product_id} cartId={cartId} />
+			<CountControllButton count={count} setCount={setCount} id={item.product_id} cartId={cartId} btnCheck={btnCheck} />
 			<ItemPrice count={count} id={item.product_id} change={change} setChange={setChange} />
 			<DeleteImg index={index} arr={arr} setArr={setArr} />
 		</ItemBox>
