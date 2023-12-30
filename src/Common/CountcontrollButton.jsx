@@ -11,6 +11,7 @@ import { cartQuantityEdit } from '../apis/cartQuantityEdit';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { minusPrice } from '../store/totalCartPriceSlice';
 import { useDispatch } from 'react-redux';
+import { notSelected } from '../store/selectedItemSlice';
 
 const PlusButton = styled(CountButton)`
 	background-image: url(${PlusIcon});
@@ -20,16 +21,18 @@ const MinusButton = styled(CountButton)`
 	background-image: url(${MinusIcon});
 `;
 
-export default function CountControllButton({ count, setCount, id, cartId }) {
+export default function CountControllButton({ count, setCount, id, cartId, btnCheck }) {
 	const dispatch = useDispatch();
 
 	const [price, setPrice] = useState();
+	const [fee, setFee] = useState();
 
 	const getFunc = useGet(`products/${id}`);
 
 	useEffect(() => {
 		getFunc().then((res) => {
-			return setPrice(res.data.price);
+			setPrice(res.data.price);
+			setFee(res.data.shipping_fee);
 		});
 	}, []);
 
@@ -60,6 +63,21 @@ export default function CountControllButton({ count, setCount, id, cartId }) {
 						cartQuantityEdit(putFunc, minusPutData, token);
 						setCount(count - 1);
 					}
+
+					if (!btnCheck) {
+						dispatch(
+							notSelected({
+								item: -price * count,
+								fee: -fee,
+							})
+						);
+						dispatch(
+							notSelected({
+								item: price * (count - 1),
+								fee: fee,
+							})
+						);
+					}
 				}}
 			/>
 			<CountButton>
@@ -70,6 +88,21 @@ export default function CountControllButton({ count, setCount, id, cartId }) {
 					dispatch(minusPrice(price * count));
 					cartQuantityEdit(putFunc, plusPutData, token);
 					setCount(count + 1);
+
+					if (!btnCheck) {
+						dispatch(
+							notSelected({
+								item: -price * count,
+								fee: -fee,
+							})
+						);
+						dispatch(
+							notSelected({
+								item: price * (count + 1),
+								fee: fee,
+							})
+						);
+					}
 				}}
 			/>
 		</ControllButtonFrame>

@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { changePrice, minusPrice } from '../../store/totalCartPriceSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useGet } from '../../hooks/useFetch';
+import { notSelected, selected } from '../../store/selectedItemSlice';
 
 const Input = styled.input`
 	appearance: none;
@@ -26,7 +30,22 @@ const Input = styled.input`
 	}
 `;
 
-export default function RadioButton({ btnCheck, setBtnCheck, id }) {
+export default function RadioButton({ btnCheck, setBtnCheck, id, count, setCount }) {
+	const dispatch = useDispatch();
+	const notSelectedSlice = useSelector((state) => {
+		return state.selectedItemSlice.item;
+	});
+	const getFunc = useGet(`/products/${id}`);
+	const [price, setPrice] = useState();
+	const [fee, setFee] = useState();
+
+	useEffect(() => {
+		getFunc().then((res) => {
+			setPrice(res.data.price);
+			setFee(res.data.shipping_fee);
+		});
+	});
+
 	return (
 		<label id="check">
 			<Input
@@ -35,6 +54,22 @@ export default function RadioButton({ btnCheck, setBtnCheck, id }) {
 				for="check"
 				value={id}
 				onChange={() => {
+					if (btnCheck == true) {
+						dispatch(
+							notSelected({
+								item: price * count,
+								fee: fee,
+							})
+						);
+					} else {
+						dispatch(
+							notSelected({
+								item: -(price * count),
+								fee: -fee,
+							})
+						);
+					}
+
 					setBtnCheck(!btnCheck);
 				}}
 			/>
