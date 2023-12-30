@@ -10,6 +10,7 @@ export default function CartMain(props) {
 			{props.arr.map((item, index) => {
 				return (
 					<CartItem
+						cartId={item.cart_item_id}
 						item={item}
 						index={index}
 						arr={props.arr}
