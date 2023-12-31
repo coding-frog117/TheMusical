@@ -4,21 +4,24 @@ import TitleText from '../../Common/TitleText';
 import AllSelectButton from '../atoms/AllSelectButton';
 import styled from 'styled-components';
 import AllDeleteModal from '../organisms/AllDeleteModal';
+import { useSelector } from 'react-redux';
 
-export default function TitleBox() {
-	const [btnCheck, setBtnCheck] = useState(true);
+const AllSelect = styled.button`
+	width: 70px;
+	font-size: ${(props) => props.theme.sm};
+	margin-left: 10px;
+`;
+
+export default function TitleBox(props) {
+	const allSelect = useSelector((state) => {
+		return state.cartAllSelectSlice.value;
+	});
 	const [modal, setModal] = useState(false);
-
-	const AllSelect = styled.button`
-		width: 70px;
-		font-size: ${(props) => props.theme.sm};
-		margin-left: 10px;
-	`;
 
 	return (
 		<GrayBox>
-			<AllSelectButton btnCheck={btnCheck} setBtnCheck={setBtnCheck} />
-			{btnCheck == true ? (
+			<AllSelectButton allSelect={props.allSelect} setAllSelect={props.setAllSelect} />
+			{allSelect == true ? (
 				<AllSelect
 					onClick={() => {
 						setModal(true);

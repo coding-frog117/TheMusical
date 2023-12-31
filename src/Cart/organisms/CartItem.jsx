@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ItemBox from '../atoms/ItemBox';
 import RadioButton from '../atoms/RadioButton';
 import ItemInfo from '../molecules/ItemInfo';
@@ -8,7 +8,6 @@ import DeleteImg from '../../Common/DeleteImg';
 
 export default function CartItem({ item, index, arr, setArr, change, setChange, cartId }) {
 	const [count, setCount] = useState(item.quantity);
-	// 각 btnCheck state를 titleBox에 공유해야 함. how?
 	const [btnCheck, setBtnCheck] = useState(true);
 
 	return (

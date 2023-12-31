@@ -9,6 +9,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import { deliveryFeeSlice } from './store/deliveryFeeSlice';
 import { selectedItemSlice } from './store/selectedItemSlice';
+import { cartAllSelectSlice } from './store/cartAllSelectSlice';
 
 const reducers = combineReducers({
 	token: userSlice.reducer,
@@ -29,6 +30,7 @@ const store = configureStore({
 		totalCartPriceSlice: totalCartPriceSlice.reducer,
 		deliveryFeeSlice: deliveryFeeSlice.reducer,
 		selectedItemSlice: selectedItemSlice.reducer,
+		cartAllSelectSlice: cartAllSelectSlice.reducer,
 	},
 	middleware: [thunk, logger],
 });
