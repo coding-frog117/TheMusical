@@ -31,6 +31,9 @@ export const Input = styled.input`
 
 export default function RadioButton({ btnCheck, setBtnCheck, id, count, setCount }) {
 	const dispatch = useDispatch();
+	const allSelect = useSelector((state) => {
+		return state.cartAllSelectSlice.value;
+	});
 	const getFunc = useGet(`/products/${id}`);
 	const [price, setPrice] = useState();
 	const [fee, setFee] = useState();
@@ -41,6 +44,10 @@ export default function RadioButton({ btnCheck, setBtnCheck, id, count, setCount
 			setFee(res.data.shipping_fee);
 		});
 	});
+
+	useEffect(() => {
+		setBtnCheck(allSelect);
+	}, [allSelect]);
 
 	return (
 		<label id="check">
