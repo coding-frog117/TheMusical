@@ -5,10 +5,16 @@ import ItemInfo from '../molecules/ItemInfo';
 import CountControllButton from '../../Common/CountcontrollButton';
 import ItemPrice from '../molecules/ItemPrice';
 import DeleteImg from '../../Common/DeleteImg';
+import { useDelete } from '../../hooks/useFetch';
+import { useSelector } from 'react-redux';
 
 export default function CartItem({ item, index, arr, setArr, change, setChange, cartId }) {
 	const [count, setCount] = useState(item.quantity);
 	const [btnCheck, setBtnCheck] = useState(true);
+	const deleteFunc = useDelete(`cart/${cartId}/`);
+	const token = useSelector((state) => {
+		return state.persistedReducer.token.value;
+	});
 
 	return (
 		<ItemBox>
@@ -22,7 +28,16 @@ export default function CartItem({ item, index, arr, setArr, change, setChange, 
 			<ItemInfo id={item.product_id} />
 			<CountControllButton count={count} setCount={setCount} id={item.product_id} cartId={cartId} btnCheck={btnCheck} />
 			<ItemPrice count={count} id={item.product_id} change={change} setChange={setChange} />
-			<DeleteImg index={index} arr={arr} setArr={setArr} />
+			<DeleteImg
+				index={index}
+				arr={arr}
+				setArr={setArr}
+				onClick={() => {
+					deleteFunc(token).then(() => {
+						window.location.reload();
+					});
+				}}
+			/>
 		</ItemBox>
 	);
 }
