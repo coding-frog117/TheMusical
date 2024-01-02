@@ -1,7 +1,8 @@
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 import styled from 'styled-components';
 
-const Input = styled.input`
+const SmallBlank = styled.input`
 	width: 80px;
 	display: inline-block;
 	height: 40px;
@@ -9,6 +10,4 @@ const Input = styled.input`
 	border: ${(props) => props.theme.lightGray} 1px solid;
 `;
 
-export default function SmallBlank() {
-	return <Input />;
-}
+export default SmallBlank;

@@ -23,41 +23,43 @@ export default function OrderAddressBox() {
 	} = useFormContext();
 
 	return (
-		<Div>
-			{/* <label htmlFor="address"> */}
-			<AddressLayout>
-				<OrderInputTitle text="배송주소" />
+		<label htmlFor="address">
+			<Div>
+				<AddressLayout>
+					<OrderInputTitle text="배송주소" />
+
+					<AddressLayout>
+						<AddressBlank
+							id="address"
+							{...register('address_number', {
+								required: '우편번호를 입력해주세요.',
+							})}
+						/>
+						<SmallButton text="우편번호 조회" height="40px" bgColor={(props) => props.theme.mainColor} />
+						{errors.address_number && <small>{errors.address_number.message}</small>}
+					</AddressLayout>
+				</AddressLayout>
 
 				<AddressLayout>
-					<AddressBlank
-						id="address"
-						{...register('address', {
+					<OrderInputTitle />
+					<BigBlank
+						{...register('address_first', {
 							required: '배송 주소를 입력해주세요.',
 						})}
 					/>
-					<SmallButton text="우편번호 조회" height="40px" bgColor={(props) => props.theme.mainColor} />
+					{errors.address_first && <small>{errors.address_first.message}</small>}
 				</AddressLayout>
-			</AddressLayout>
 
-			<AddressLayout>
-				<OrderInputTitle />
-				<BigBlank
-					{...register('address', {
-						required: '배송 주소를 입력해주세요.',
-					})}
-				/>
-			</AddressLayout>
-
-			<AddressLayout>
-				<OrderInputTitle />
-				<BigBlank
-					{...register('address', {
-						required: '배송 주소를 입력해주세요.',
-					})}
-				/>
-			</AddressLayout>
-			{errors.address && <small>{errors.address.message}</small>}
-			{/* </label> */}
-		</Div>
+				<AddressLayout>
+					<OrderInputTitle />
+					<BigBlank
+						{...register('address_second', {
+							required: '상세 주소를 입력해주세요.',
+						})}
+					/>
+					{errors.address_second ? <small>{errors.address_second.message}</small> : null}
+				</AddressLayout>
+			</Div>
+		</label>
 	);
 }

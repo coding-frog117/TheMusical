@@ -7,6 +7,8 @@ import OrderEmailInput from '../molecules/OrderEmailInput';
 import OrderAddressBox from '../molecules/OrderAddressBox';
 import DeliveryMessage from '../molecules/DeliveryMessage';
 import { useFormContext } from 'react-hook-form';
+import OrdererInput from '../molecules/OrdererInput';
+import OrdererPhoneInput from '../molecules/OrdererPhoneInput';
 
 export default function DeliveryInfo() {
 	const {
@@ -20,8 +22,8 @@ export default function DeliveryInfo() {
 
 			<Text text="주문자 정보" fontSize={(props) => props.theme.md} fontWeight="500" />
 			<Border height="2px" margin="8px 0 0" />
-			<OrderNameInput />
-			<PhoneInput />
+			<OrdererInput />
+			<OrdererPhoneInput />
 			<OrderEmailInput />
 
 			<Text text="배송지 정보" fontSize={(props) => props.theme.md} fontWeight="500" margin="40px 0 0" />

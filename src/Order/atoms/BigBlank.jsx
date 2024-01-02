@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Input = styled.input`
+export const BigBlank = styled.input`
 	width: 800px;
 	height: 40px;
 	font-size: ${(props) => props.theme.md};
@@ -9,6 +9,4 @@ const Input = styled.input`
 	display: block;
 `;
 
-export default function BigBlank() {
-	return <Input />;
-}
+export default BigBlank;
