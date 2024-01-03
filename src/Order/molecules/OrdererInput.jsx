@@ -4,7 +4,7 @@ import MiddleBlank from '../atoms/MiddleBlank';
 import OrderInputTitle from '../atoms/OrderInputTitle';
 import { useFormContext } from 'react-hook-form';
 
-export default function OrderNameInput() {
+export default function OrdererInput() {
 	const {
 		register,
 		formState: { errors },
@@ -13,14 +13,14 @@ export default function OrderNameInput() {
 	return (
 		<OrderInputBox>
 			<OrderInputTitle text="이름" />
-			<label htmlFor="reciever">
+			<label htmlFor="orderer">
 				<MiddleBlank
-					id="reciever"
-					{...register('reciever', {
+					id="orderer"
+					{...register('orderer', {
 						required: '이름을 입력해주세요',
 					})}
 				/>
-				{errors.reciever && <small>{errors.reciever.message}</small>}
+				{errors.orderer && <small>{errors.orderer.message}</small>}
 			</label>
 		</OrderInputBox>
 	);

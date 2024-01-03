@@ -33,7 +33,7 @@ export default function MainTop() {
 				<CountControllButton count={count} setCount={setCount} id={id} />
 				<BorderLine margin="30px 0 0" />
 				<ProductPriceInfo data={data} count={count} />
-				<Buttons count={count} />
+				<Buttons count={count} data={data} />
 			</div>
 		</ProductLayout>
 	);
