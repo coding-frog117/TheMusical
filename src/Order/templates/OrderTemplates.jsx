@@ -7,11 +7,18 @@ import Payment from '../organisms/Payment';
 import { FormProvider, useForm } from 'react-hook-form';
 import { usePost } from '../../hooks/useFetch';
 import orderDirect from '../../apis/orderDirect';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function OrderTemplates() {
-	const postFunc = usePost('order');
+	const location = useLocation();
+	const { state } = location;
+	const postFunc = usePost('order/');
 	const methods = useForm();
 	const { handleSubmit } = methods;
+	const token = useSelector((state) => {
+		return state.persistedReducer.token.value;
+	});
 
 	return (
 		<HomeLayout>
@@ -20,9 +27,12 @@ export default function OrderTemplates() {
 			<FormProvider {...methods}>
 				<form
 					onSubmit={handleSubmit(async (data) => {
-						await orderDirect(postFunc, data, id, quantity, total_price).then((res) => {
-							return res;
-						});
+						console.log(data);
+						await orderDirect(postFunc, token, data, state.data.product_id, state.quantity, state.data.price).then(
+							(res) => {
+								console.log(res);
+							}
+						);
 					})}
 				>
 					<DeliveryInfo />

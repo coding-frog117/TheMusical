@@ -13,14 +13,14 @@ export default function OrderNameInput() {
 	return (
 		<OrderInputBox>
 			<OrderInputTitle text="이름" />
-			<label htmlFor="reciever">
+			<label htmlFor="receiver">
 				<MiddleBlank
-					id="reciever"
-					{...register('reciever', {
+					id="receiver"
+					{...register('receiver', {
 						required: '이름을 입력해주세요',
 					})}
 				/>
-				{errors.reciever && <small>{errors.reciever.message}</small>}
+				{errors.receiver && <small>{errors.receiver.message}</small>}
 			</label>
 		</OrderInputBox>
 	);

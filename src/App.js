@@ -8,6 +8,7 @@ import DashBoardTemplates from './DashBoard/templates/DashBoardTemplates';
 import ProductRegistrationTemplates from './ProductRegistration/templates/ProductRegistrationTemplates';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ProductEditTemplates from './productEdit/templates/ProductEditTemplates';
+import MyPageTemplates from './MyPage/templates/MyPageTemplates';
 
 function App() {
 	return (
@@ -21,7 +22,8 @@ function App() {
 				<Route path="/order" element={<OrderTemplates />} />
 				<Route path="/dashboard" element={<DashBoardTemplates />} />
 				<Route path="/productRegistration" element={<ProductRegistrationTemplates />} />
-				<Route path="/productEdit/:id" element={<ProductEditTemplates></ProductEditTemplates>} />
+				<Route path="/productEdit/:id" element={<ProductEditTemplates />} />
+				<Route path="/mypage" element={<MyPageTemplates />} />
 			</Routes>
 		</>
 	);
