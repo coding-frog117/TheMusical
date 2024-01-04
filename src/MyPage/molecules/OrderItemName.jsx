@@ -1,23 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import { OrderItemNameLayout } from '../atoms/OrderItemNameLayout';
 import InlineText from '../../Common/InlineText';
 import { useNavigate } from 'react-router-dom';
 
-const Div = styled.div`
-	width: 500px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	margin-left: 30px;
-	margin-right: 267px;
-	cursor: pointer;
-`;
-
-export default function SellingItemName(props) {
+export default function OrderItemName(props) {
 	const navigator = useNavigate();
 
 	return (
-		<Div
+		<OrderItemNameLayout
 			onClick={() => {
 				navigator(`/productDetail/${props.id}`);
 			}}
@@ -28,6 +18,6 @@ export default function SellingItemName(props) {
 				color={(props) => props.theme.darkGray}
 				fontSize={(props) => props.theme.sm}
 			/>
-		</Div>
+		</OrderItemNameLayout>
 	);
 }

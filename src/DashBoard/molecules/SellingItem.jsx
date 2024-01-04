@@ -10,7 +10,7 @@ import { useGet } from '../../hooks/useFetch';
 import { useNavigate } from 'react-router-dom';
 import ProductDeleteModal from '../organisms/ProductDeleteModal';
 
-const Li = styled.li`
+export const Li = styled.li`
 	width: 100%;
 	height: 103px;
 	padding: 16px 30px 17px;
@@ -20,7 +20,7 @@ const Li = styled.li`
 	background-color: #fff;
 `;
 
-const TextSpan = styled.span`
+export const TextSpan = styled.span`
 	width: 100px;
 	display: inline-block;
 	text-align: center;
