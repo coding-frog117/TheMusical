@@ -1,4 +1,4 @@
-export const cartQuantityEdit = async (putFunc, putData, token) => {
+export const cartEdit = async (putFunc, putData, token) => {
 	const res = await putFunc(putData, token);
 
 	try {

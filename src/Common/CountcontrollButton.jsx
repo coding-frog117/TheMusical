@@ -7,7 +7,7 @@ import CountText from '../GoodsDetail/atoms/CountText';
 import ControllButtonFrame from '../Cart/atoms/ControllButtonFrame';
 import styled from 'styled-components';
 import { useGet, usePut } from '../hooks/useFetch';
-import { cartQuantityEdit } from '../apis/cartQuantityEdit';
+import { cartEdit } from '../apis/cartEdit';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { minusPrice } from '../store/totalCartPriceSlice';
 import { useDispatch } from 'react-redux';
@@ -60,7 +60,7 @@ export default function CountControllButton({ count, setCount, id, cartId, btnCh
 				onClick={() => {
 					if (count > 1) {
 						dispatch(minusPrice(price * count));
-						cartQuantityEdit(putFunc, minusPutData, token);
+						cartEdit(putFunc, minusPutData, token);
 						setCount(count - 1);
 					}
 
@@ -86,7 +86,7 @@ export default function CountControllButton({ count, setCount, id, cartId, btnCh
 			<PlusButton
 				onClick={() => {
 					dispatch(minusPrice(price * count));
-					cartQuantityEdit(putFunc, plusPutData, token);
+					cartEdit(putFunc, plusPutData, token);
 					setCount(count + 1);
 
 					if (!btnCheck) {

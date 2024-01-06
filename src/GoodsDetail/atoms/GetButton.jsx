@@ -24,7 +24,7 @@ export default function GetButton(props) {
 	const postData = {
 		product_id: id,
 		quantity: props.count,
-		check: false,
+		check: true,
 	};
 
 	return (
