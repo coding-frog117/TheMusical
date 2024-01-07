@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGet } from '../../hooks/useFetch';
+import { useGet, usePut } from '../../hooks/useFetch';
 import { notSelected } from '../../store/selectedItemSlice';
+import { cartEdit } from '../../apis/cartEdit';
 
 export const Input = styled.input`
 	appearance: none;
@@ -29,14 +30,32 @@ export const Input = styled.input`
 	}
 `;
 
-export default function RadioButton({ btnCheck, setBtnCheck, id, count, setCount }) {
+export default function RadioButton(props) {
 	const dispatch = useDispatch();
 	const allSelect = useSelector((state) => {
 		return state.cartAllSelectSlice.value;
 	});
-	const getFunc = useGet(`/products/${id}`);
-	const [price, setPrice] = useState();
-	const [fee, setFee] = useState();
+	const token = useSelector((state) => {
+		return state.persistedReducer.token.value;
+	});
+
+	const getFunc = useGet(`/products/${props.id}/`);
+	const putFunc = usePut(`/cart/${props.cartId}/`);
+
+	const [price, setPrice] = useState('');
+	const [fee, setFee] = useState('');
+
+	const putData = {
+		product_id: props.id,
+		quantity: props.count,
+		is_active: !props.btnCheck,
+	};
+
+	const allSelectData = {
+		product_id: props.id,
+		quantity: props.count,
+		is_active: allSelect,
+	};
 
 	useEffect(() => {
 		getFunc().then((res) => {
@@ -46,34 +65,37 @@ export default function RadioButton({ btnCheck, setBtnCheck, id, count, setCount
 	});
 
 	useEffect(() => {
-		setBtnCheck(allSelect);
+		props.setBtnCheck(allSelect);
+		cartEdit(putFunc, allSelectData, token);
 	}, [allSelect]);
 
 	return (
 		<label id="check">
 			<Input
-				checked={btnCheck}
+				checked={props.btnCheck}
 				type="checkbox"
 				for="check"
-				value={id}
+				value={props.id}
 				onChange={() => {
-					if (btnCheck == true) {
+					if (props.btnCheck == true) {
 						dispatch(
 							notSelected({
-								item: price * count,
+								item: price * props.count,
 								fee: fee,
 							})
 						);
+						cartEdit(putFunc, putData, token);
 					} else {
 						dispatch(
 							notSelected({
-								item: -(price * count),
+								item: -(price * props.count),
 								fee: -fee,
 							})
 						);
+						cartEdit(putFunc, putData, token);
 					}
 
-					setBtnCheck(!btnCheck);
+					props.setBtnCheck(!props.btnCheck);
 				}}
 			/>
 		</label>

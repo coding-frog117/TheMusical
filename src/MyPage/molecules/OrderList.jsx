@@ -17,6 +17,8 @@ export default function OrderList() {
 		});
 	}, []);
 
+	console.log(itemList);
+
 	return (
 		<ul>
 			{itemList.map((item) => {
@@ -24,6 +26,7 @@ export default function OrderList() {
 				return (
 					<OrderItem
 						id={item.order_items[0]}
+						itemCount={item.order_items.length}
 						time={item.created_at}
 						price={item.total_price}
 						status={item.delivery_status}

@@ -24,7 +24,11 @@ export default function OrderItem(props) {
 	return (
 		<List>
 			<SellingItemImg src={data.image} />
-			<OrderItemName text={data.product_name} count={data.stock} id={data.product_id} />
+			<OrderItemName
+				text={props.itemCount > 1 ? `${data.product_name} 외 ${props.itemCount - 1}개` : data.product_name}
+				count={data.stock}
+				id={data.product_id}
+			/>
 			<InlineText text={props.time.slice(0, 10)} fontSize={(props) => props.theme.sm} />
 			<InlineText text={props.price.toLocaleString() + '원'} fontSize={(props) => props.theme.sm} />
 			<InlineText text={props.status == 'COMPLETE_PAYMENT' ? '결제완료' : null} fontSize={(props) => props.theme.sm} />

@@ -13,7 +13,7 @@ export default function Buttons(props) {
 		<ProductLayout gap="14px">
 			<JoinWithSignupButton
 				onClick={() => {
-					navigator('/order', { state: { quantity: quantity, data: data } });
+					navigator('/order', { state: { quantity: quantity, data: [data] } });
 				}}
 			>
 				바로 구매
