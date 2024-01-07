@@ -11,7 +11,7 @@ import { useGet } from '../../hooks/useFetch';
 
 export default function MainTop() {
 	const { id } = useParams();
-	const getFunc = useGet(`products/${id}`);
+	const getFunc = useGet(`products/${id}/`);
 	const [data, setData] = useState('');
 	const [count, setCount] = useState(1);
 
@@ -33,7 +33,7 @@ export default function MainTop() {
 				<CountControllButton count={count} setCount={setCount} id={id} />
 				<BorderLine margin="30px 0 0" />
 				<ProductPriceInfo data={data} count={count} />
-				<Buttons count={count} data={data} />
+				<Buttons count={count} id={id} />
 			</div>
 		</ProductLayout>
 	);

@@ -18,10 +18,11 @@ export default function OrderList(props) {
 		});
 	}, []);
 
+	console.log(arr);
 	return (
 		<OrderListMainBox>
 			<GoodsImg size="104px" margin="0 36px 0 0" src={arr.image} />
-			<OrderItemText data={arr} quantity={props?.quantity} />
+			<OrderItemText data={arr} quantity={props.quantity} />
 			<OrderPriceBox>
 				<InlineText text="-" />
 			</OrderPriceBox>

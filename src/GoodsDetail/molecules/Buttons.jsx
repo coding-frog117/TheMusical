@@ -7,13 +7,12 @@ import { useNavigate } from 'react-router-dom';
 export default function Buttons(props) {
 	const navigator = useNavigate();
 	const quantity = props.count;
-	const data = props.data;
 
 	return (
 		<ProductLayout gap="14px">
 			<JoinWithSignupButton
 				onClick={() => {
-					navigator('/order', { state: { quantity: quantity, data: [data] } });
+					navigator(`/order/${props.id}`, { state: { quantity: quantity } });
 				}}
 			>
 				바로 구매
