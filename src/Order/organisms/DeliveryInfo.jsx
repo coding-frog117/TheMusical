@@ -6,15 +6,10 @@ import PhoneInput from '../molecules/PhoneInput';
 import OrderEmailInput from '../molecules/OrderEmailInput';
 import OrderAddressBox from '../molecules/OrderAddressBox';
 import DeliveryMessage from '../molecules/DeliveryMessage';
-import { useFormContext } from 'react-hook-form';
 import OrdererInput from '../molecules/OrdererInput';
 import OrdererPhoneInput from '../molecules/OrdererPhoneInput';
 
 export default function DeliveryInfo() {
-	const {
-		register,
-		formState: { errors },
-	} = useFormContext();
 	return (
 		<>
 			<Text text="배송정보" fontSize={(props) => props.theme.xLg} fontWeight="500" />

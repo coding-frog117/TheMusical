@@ -5,7 +5,7 @@ import DeliveryInfo from '../organisms/DeliveryInfo';
 import Payment from '../organisms/Payment';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useGet, usePost } from '../../hooks/useFetch';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import orderCartAll from '../../apis/orderCartAll';
 import CartOrderInfo from '../organisms/CartOrderInfo';
@@ -13,6 +13,7 @@ import OneOrderInfo from '../organisms/OneOrderInfo';
 import orderDirect from '../../apis/orderDirect';
 
 export default function OrderTemplates() {
+	const navigator = useNavigate();
 	const postFunc = usePost('order/');
 	let { id } = useParams();
 	const getFunc = useGet(`products/${id}`);
@@ -56,7 +57,13 @@ export default function OrderTemplates() {
 								}
 							});
 						} else {
-							await orderDirect(postFunc, token, data, id, state.quantity, price);
+							await orderDirect(postFunc, token, data, id, state.quantity, price).then((res) => {
+								if (window.confirm('주문이 완료되었습니다. 주문 목록으로 가시겠습니까?')) {
+									navigator('/mypage');
+								} else {
+									window.location.reload();
+								}
+							});
 						}
 					})}
 				>

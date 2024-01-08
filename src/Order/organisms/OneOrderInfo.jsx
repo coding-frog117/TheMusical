@@ -17,16 +17,16 @@ export default function OneOrderInfo() {
 	const { id } = useParams();
 
 	const getItemFunc = useGet(`products/${id}/`);
-	const [cartData, setCartData] = useState([]);
+	const [data, setData] = useState([]);
 	const { state } = useLocation();
 
 	useEffect(() => {
 		getItemFunc().then((res) => {
-			setCartData(res.data);
+			setData(res.data);
 		});
 	}, []);
 
-	const totalPrice = state.quantity * cartData.price;
+	const totalPrice = state.quantity * data.price + data.shipping_fee;
 
 	return (
 		<>
