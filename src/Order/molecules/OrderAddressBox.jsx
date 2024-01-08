@@ -1,5 +1,4 @@
-import React from 'react';
-import OrderInputBox from '../atoms/OrderInputBox';
+import React, { useEffect, useState } from 'react';
 import OrderInputTitle from '../atoms/OrderInputTitle';
 import SmallButton from '../../Cart/atoms/SmallButton';
 import AddressBlank from '../atoms/AddressBlank';
@@ -7,6 +6,7 @@ import BigBlank from '../atoms/BigBlank';
 import AddressLayout from '../atoms/FlexLayout';
 import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
 
 const Div = styled.div`
 	display: flex;
@@ -16,7 +16,33 @@ const Div = styled.div`
 	border-bottom: ${(props) => props.theme.lightGray} 1px solid;
 `;
 
-export default function OrderAddressBox() {
+export default function OrderAddressBox(props) {
+	const open = useDaumPostcodePopup();
+	const [zonecode, setZonecode] = useState('');
+	const [address, setAddress] = useState('');
+
+	const handleComplete = (data) => {
+		let fullAddress = data.address;
+		let extraAddress = '';
+
+		if (data.addressType === 'R') {
+			if (data.bname !== '') {
+				extraAddress += data.bname;
+			}
+			if (data.buildingName !== '') {
+				extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+			}
+			fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+		}
+
+		setAddress(fullAddress);
+		setZonecode(data.zonecode);
+	};
+
+	const handleClick = () => {
+		open({ onComplete: handleComplete });
+	};
+
 	const {
 		register,
 		formState: { errors },
@@ -31,33 +57,37 @@ export default function OrderAddressBox() {
 					<AddressLayout>
 						<AddressBlank
 							id="address"
-							{...register('address_number', {
+							value={zonecode}
+							{...register('zonecode', {
 								required: '우편번호를 입력해주세요.',
 							})}
 						/>
-						<SmallButton text="우편번호 조회" height="40px" bgColor={(props) => props.theme.mainColor} />
-						{errors.address_number && <small>{errors.address_number.message}</small>}
+						<SmallButton height="40px" bgColor={(props) => props.theme.mainColor} type="button" onClick={handleClick}>
+							우편번호 조회
+						</SmallButton>
+						{errors.zonecode && <small>{errors.zonecode.message}</small>}
 					</AddressLayout>
 				</AddressLayout>
 
 				<AddressLayout>
 					<OrderInputTitle />
 					<BigBlank
-						{...register('address_first', {
+						value={address}
+						{...register('address', {
 							required: '배송 주소를 입력해주세요.',
 						})}
 					/>
-					{errors.address_first && <small>{errors.address_first.message}</small>}
+					{errors.address && <small>{errors.address.message}</small>}
 				</AddressLayout>
 
 				<AddressLayout>
 					<OrderInputTitle />
 					<BigBlank
-						{...register('address_second', {
+						{...register('detail_address', {
 							required: '상세 주소를 입력해주세요.',
 						})}
 					/>
-					{errors.address_second ? <small>{errors.address_second.message}</small> : null}
+					{errors.detail_address ? <small>{errors.detail_address.message}</small> : null}
 				</AddressLayout>
 			</Div>
 		</label>

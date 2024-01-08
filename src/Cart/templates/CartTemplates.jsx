@@ -22,11 +22,9 @@ export default function CartTemplates() {
 
 	useEffect(() => {
 		getFunc(token).then((res) => {
-			console.log(res.data.results);
 			setArr([...res.data.results]);
 		});
 	}, []);
-	console.log(arr);
 
 	return (
 		<HomeLayout>
@@ -40,7 +38,7 @@ export default function CartTemplates() {
 					<PriceBox />
 					<BigButton
 						onClick={() => {
-							navigator('/order', { state: { data: arr } });
+							navigator('/order/cartOrder');
 						}}
 					>
 						주문하기

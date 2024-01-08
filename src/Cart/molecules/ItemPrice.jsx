@@ -26,7 +26,13 @@ export default function ItemPrice(props) {
 	return (
 		<ItemPriceBox>
 			<PriceText text={`${Number(props.count * price).toLocaleString()} 원`} />
-			<SmallButton text="주문하기" height="40px" bgColor={(props) => props.theme.mainColor} />
+			<SmallButton
+				text="주문하기"
+				height="40px"
+				bgColor={(props) => props.theme.mainColor}
+				id={props.id}
+				count={props.count}
+			/>
 		</ItemPriceBox>
 	);
 }

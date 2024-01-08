@@ -19,7 +19,8 @@ function App() {
 				<Route path="/signup" element={<SignupTemplates />} />
 				<Route path="/productDetail/:id" element={<GoodsDetailTemplates />} />
 				<Route path="/cart" element={<CartTemplates />} />
-				<Route path="/order" element={<OrderTemplates />} />
+				<Route path="/order/cartOrder" element={<OrderTemplates />} />
+				<Route path="/order/:id" element={<OrderTemplates />} />
 				<Route path="/dashboard" element={<DashBoardTemplates />} />
 				<Route path="/productRegistration" element={<ProductRegistrationTemplates />} />
 				<Route path="/productEdit/:id" element={<ProductEditTemplates />} />

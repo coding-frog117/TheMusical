@@ -17,14 +17,17 @@ export default function OrderTerms() {
 
 	return (
 		<Div>
-			<TermsInp
-				type="checkbox"
-				{...register('terms', {
-					required: '주문 내용을 확인하고 체크해주세요.',
-				})}
-			/>
-			<InlineText text="주문 내용을 확인하였고 동의합니다." fontSize="16px" />
-			{errors.terms && <small>{errors.terms.message}</small>}
+			<label htmlFor="terms">
+				<TermsInp
+					id="terms"
+					type="checkbox"
+					{...register('terms', {
+						required: '주문 내용을 확인하고 체크해주세요.',
+					})}
+				/>
+				<InlineText text="주문 내용을 확인하였고 동의합니다." fontSize="16px" />
+				{errors.terms && <small>{errors.terms.message}</small>}
+			</label>
 		</Div>
 	);
 }
