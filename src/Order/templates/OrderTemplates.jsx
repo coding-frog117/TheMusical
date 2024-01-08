@@ -57,7 +57,7 @@ export default function OrderTemplates() {
 								}
 							});
 						} else {
-							await orderDirect(postFunc, token, data, id, state.quantity, price).then((res) => {
+							await orderDirect(postFunc, token, data, id, state.quantity, price, state.orderKind).then((res) => {
 								if (window.confirm('주문이 완료되었습니다. 주문 목록으로 가시겠습니까?')) {
 									navigator('/mypage');
 								} else {

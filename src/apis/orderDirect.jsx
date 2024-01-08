@@ -1,8 +1,8 @@
-export default async function orderDirect(postFunc, token, data, id, quantity, price) {
+export default async function orderDirect(postFunc, token, data, id, quantity, price, orderKind) {
 	const postData = {
 		product_id: id,
 		quantity: quantity,
-		order_kind: 'direct_order',
+		order_kind: orderKind,
 		total_price: price * quantity,
 
 		receiver: data.receiver,
