@@ -1,26 +1,21 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import BannerImg from '../../assets/bannerImg.jpg'
-import { useGet } from '../../hooks/useFetch'
+import React, { useEffect } from 'react';
+import styled from 'styled-components';
+// import convert from 'xml-js';
 
 const Img = styled.img`
-    width : 100%;
-    height : 500px;
-`
+	width: 100%;
+	height: 500px;
+`;
 
 export default function Banner() {
-  // const getFunc = async()=>{
-  //     const response = await fetch('http://api.kcisa.kr/openapi/CNV_060/request?serviceKey=ff7fa7df-4ed4-41d8-9b05-24ab747780e9&numOfRows=10&pageNo=1')
-  //     const result = await response.json();
-  //     return result;
-  // } 
+	const ServiceKey = '2a7c8f0ba63c4661b6a06dfdca5182a6';
+	const getUrl = `/openApi/restful/boxoffice?service=${ServiceKey}&ststype=day&date=20240102&catecode=AAAA&area=11`;
 
-  // useEffect(()=>{
-  //   console.log(getFunc());
+	useEffect(() => {
+		fetch(getUrl, { method: 'GET' }).then((res) => {
+			console.log(res);
+		});
+	}, []);
 
-  // },[])
-
-  return (
-    <Img />
-  )
+	return <Img />;
 }
