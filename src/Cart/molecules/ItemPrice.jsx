@@ -5,11 +5,13 @@ import SmallButton from '../atoms/SmallButton';
 import { useGet } from '../../hooks/useFetch';
 import { changePrice } from '../../store/totalCartPriceSlice';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export default function ItemPrice(props) {
 	const getFunc = useGet(`products/${props.id}`);
 	const [price, setPrice] = useState();
 	const dispatch = useDispatch();
+	const navigator = useNavigate();
 
 	useEffect(() => {
 		getFunc().then((res) => {
@@ -27,12 +29,16 @@ export default function ItemPrice(props) {
 		<ItemPriceBox>
 			<PriceText text={`${Number(props.count * price).toLocaleString()} 원`} />
 			<SmallButton
-				text="주문하기"
 				height="40px"
 				bgColor={(props) => props.theme.mainColor}
 				id={props.id}
 				count={props.count}
-			/>
+				onClick={() => {
+					navigator(`/order/${props.id}`, { state: { quantity: props.count, orderKind: 'cart_one_order' } });
+				}}
+			>
+				주문하기
+			</SmallButton>
 		</ItemPriceBox>
 	);
 }

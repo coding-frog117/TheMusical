@@ -1,10 +1,12 @@
 import React from 'react';
 import MyPageModalLayout from '../atoms/MyPageModalLayout';
 import MyPageModalButton from '../atoms/MyPageModalButton';
-import { useNavigate } from 'react-router-dom';
-
+import { usePost } from '../../hooks/useFetch';
+import { useDispatch } from 'react-redux';
+import { depositToken } from '../../store/userSlice';
 export default function MyPageModal() {
-	const navigator = useNavigate();
+	const postFunc = usePost('accounts/logout/');
+	const dispatch = useDispatch();
 
 	return (
 		<MyPageModalLayout>
@@ -15,7 +17,16 @@ export default function MyPageModal() {
 			>
 				마이페이지
 			</MyPageModalButton>
-			<MyPageModalButton>로그아웃</MyPageModalButton>
+			<MyPageModalButton
+				onClick={() => {
+					postFunc().then((res) => {
+						dispatch(depositToken(''));
+						alert(res.data.detail);
+					});
+				}}
+			>
+				로그아웃
+			</MyPageModalButton>
 		</MyPageModalLayout>
 	);
 }

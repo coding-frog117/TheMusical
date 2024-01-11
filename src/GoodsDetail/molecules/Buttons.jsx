@@ -12,7 +12,7 @@ export default function Buttons(props) {
 		<ProductLayout gap="14px">
 			<JoinWithSignupButton
 				onClick={() => {
-					navigator(`/order/${props.id}`, { state: { quantity: quantity } });
+					navigator(`/order/${props.id}`, { state: { quantity: quantity, orderKind: 'direct_order' } });
 				}}
 			>
 				바로 구매
