@@ -9,6 +9,7 @@ import ProductRegistrationTemplates from './ProductRegistration/templates/Produc
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ProductEditTemplates from './productEdit/templates/ProductEditTemplates';
 import MyPageTemplates from './MyPage/templates/MyPageTemplates';
+import MusicalDetailTemplates from './MusicalDetail/templates/MusicalDetailTemplates';
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 				<Route path="/productRegistration" element={<ProductRegistrationTemplates />} />
 				<Route path="/productEdit/:id" element={<ProductEditTemplates />} />
 				<Route path="/mypage" element={<MyPageTemplates />} />
+				<Route path="/musicalDetail/:id" element={<MusicalDetailTemplates />} />
 			</Routes>
 		</>
 	);

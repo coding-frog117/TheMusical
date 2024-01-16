@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import BannerLayout from './BannerLayout';
 import { xmlToJson } from '../../xmlToJson/xmlToJson';
@@ -10,6 +11,8 @@ import { BannerImg } from './BannerImg';
 import { Slider } from './Slider';
 import { BannerIconCont } from './BannerIconCont';
 import { Icon } from './Icon';
+import { useSelector } from 'react-redux';
+import { useGetJsonData } from '../../hooks/useGetJsonData';
 
 const Div = styled.div`
 	width: 100%;
@@ -25,9 +28,12 @@ const RightIcon = styled(BannerIconCont)`
 `;
 
 export default function Banner() {
-	const ServiceKey = '2a7c8f0ba63c4661b6a06dfdca5182a6';
+	const getData = useGetJsonData;
+	const navigate = useNavigate();
+	const ServiceKey = useSelector((state) => {
+		return state.musicalServiceKey.value;
+	});
 	const getUrl = `http://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=20240110&catecode=GGGA`;
-	const getDetailUrl = `http://www.kopis.or.kr/openApi/restful/pblprfr/PF227003?service=${ServiceKey}&newsql=Y`;
 	const [boxoffice, setBoxOffice] = useState([]);
 	const [swipIndex, setSwipIndex] = useState(2);
 	const [carouselTransition, setCarouselTransition] = useState('all 0.5s ease-in-out');
@@ -75,22 +81,13 @@ export default function Banner() {
 		}, 500);
 	};
 
-	const getdata = async () => {
-		const response = await fetch(getUrl);
-
-		const xmlString = await response.text();
-		const XmlNode = new DOMParser().parseFromString(xmlString, 'text/xml');
-
-		// import해온 xmlToJson함수 안에 변형한 XmlNode를 넣어준다. 그러면 json객체를 return해준다.
-		const item = xmlToJson(XmlNode);
-		return item.boxofs.boxof;
-	};
-
 	useEffect(() => {
-		getdata().then((data) => {
-			makeNewArray(data);
+		getData(getUrl).then((data) => {
+			makeNewArray(data.boxofs.boxof);
 		});
 	}, []);
+
+	console.log(boxoffice);
 
 	return (
 		<>
@@ -107,7 +104,11 @@ export default function Banner() {
 					>
 						{boxoffice.map((item) => {
 							return (
-								<figure>
+								<figure
+									onClick={() => {
+										navigate(`/musicalDetail/${item.mt20id}`);
+									}}
+								>
 									<InlineText
 										text={item.rnum}
 										fontSize={(props) => props.theme.big}

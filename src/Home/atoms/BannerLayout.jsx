@@ -6,6 +6,7 @@ const BannerLayout = styled.section`
 	display: flex;
 	gap: 15px;
 	margin: 0 auto;
+	cursor: pointer;
 `;
 
 export default BannerLayout;

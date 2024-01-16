@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import { deliveryFeeSlice } from './store/deliveryFeeSlice';
 import { selectedItemSlice } from './store/selectedItemSlice';
 import { cartAllSelectSlice } from './store/cartAllSelectSlice';
+import { musicalServiceKey } from './store/musicalServiceKey';
 
 const reducers = combineReducers({
 	token: userSlice.reducer,
@@ -31,6 +32,7 @@ const store = configureStore({
 		deliveryFeeSlice: deliveryFeeSlice.reducer,
 		selectedItemSlice: selectedItemSlice.reducer,
 		cartAllSelectSlice: cartAllSelectSlice.reducer,
+		musicalServiceKey: musicalServiceKey.reducer,
 	},
 	middleware: [thunk, logger],
 });
