@@ -22,6 +22,7 @@ const ImgCont = styled.div`
 
 export default function MusicalInfo() {
 	const [musicalData, setMusicalData] = useState('');
+	const [name, setName] = useState();
 	const getData = useGetJsonData;
 	const { id } = useParams();
 	const ServiceKey = useSelector((state) => {
@@ -34,6 +35,7 @@ export default function MusicalInfo() {
 		getData(getUrl).then((res) => {
 			console.log(res.dbs.db);
 			setMusicalData(res.dbs.db);
+			setName(res.dbs.db.prfnm);
 		});
 	};
 
@@ -62,7 +64,7 @@ export default function MusicalInfo() {
 						)
 					) : null}
 				</ImgCont>
-				<AssociateProductList />
+				<AssociateProductList name={name} />
 			</InfoLayout>
 		</>
 	);
