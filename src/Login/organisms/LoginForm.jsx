@@ -39,6 +39,8 @@ export default function LoginForm(props) {
 				setBuySelect={setBuySelect}
 				sellSelect={sellSelect}
 				setSellSelect={setSellSelect}
+				buyer="구매 회원 로그인"
+				seller="판매 회원 로그인"
 			/>
 			<FormProvider {...methods}>
 				<Form

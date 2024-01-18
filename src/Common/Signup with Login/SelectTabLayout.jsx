@@ -1,9 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SelectTabLayout = styled.div`
-    display : flex;
-    text-align : center;
-    margin-top : 70px;
-`
+	display: flex;
+	text-align: center;
+`;
 
 export default SelectTabLayout;

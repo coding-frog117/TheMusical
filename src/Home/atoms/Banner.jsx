@@ -14,7 +14,7 @@ import { Icon } from './Icon';
 import { useSelector } from 'react-redux';
 import { useGetJsonData } from '../../hooks/useGetJsonData';
 import { getToday } from '../../business/getToday';
-import SectionHeader from './SectionHeader';
+import SectionHeader from '../../Common/SectionHeader';
 import MoreRankingButton from './MoreRankingButton';
 
 const Div = styled.section`

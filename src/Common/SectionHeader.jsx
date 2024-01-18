@@ -7,7 +7,7 @@ const SectionHeader = styled.header`
 	font-weight: ${(props) => props.theme.bold};
 	text-align: center;
 	padding: 50px 0;
-	margin-top: 50px;
+	margin: ${(props) => props.margin};
 `;
 
 export default SectionHeader;

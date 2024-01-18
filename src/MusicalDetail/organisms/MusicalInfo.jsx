@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AssociateProductList from './AssociateProductList';
-import Header from '../../Home/organisms/Header';
+import Header from '../../Common/Header/Header';
 import { MusicalName } from '../atoms/MusicalName';
 import { InfoLayout } from '../atoms/InfoLayout';
 import { MusicalImg } from '../atoms/MusicalImg';
@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 import { useGetJsonData } from '../../hooks/useGetJsonData';
 import styled from 'styled-components';
 import InlineText from '../../Common/InlineText';
-import DivideBar from '../../Common/DivideBar';
 import MusicalHeader from '../molecules/MusicalHeader';
 import MusicalDetailInfo from '../molecules/MusicalDetailInfo';
 import MusicalHeaderCont from '../atoms/MusicalHeaderCont';
