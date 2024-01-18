@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckButton } from '../../Common/Signup with Login/Button';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Div = styled.div`
 	width: 1008px;
@@ -20,9 +21,17 @@ export const Button = styled(CheckButton)`
 `;
 
 export default function MoreRankingButton() {
+	const navigate = useNavigate();
+
 	return (
 		<Div>
-			<Button>Top 50 더보기</Button>
+			<Button
+				onClick={() => {
+					navigate('/musicalRank');
+				}}
+			>
+				Top 50 더보기
+			</Button>
 		</Div>
 	);
 }

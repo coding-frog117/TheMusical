@@ -6,8 +6,8 @@ const LogoCont = styled.div`
 	text-align: center;
 `;
 const LogoImg = styled.img`
-	width: 238px;
-	height: 74px;
+	width: 400px;
+	height: 150px;
 `;
 
 export default function Logo() {

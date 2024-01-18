@@ -10,6 +10,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ProductEditTemplates from './productEdit/templates/ProductEditTemplates';
 import MyPageTemplates from './MyPage/templates/MyPageTemplates';
 import MusicalDetailTemplates from './MusicalDetail/templates/MusicalDetailTemplates';
+import MusicalRankTemplates from './MusicalRank.jsx/templates/MusicalRankTemplates';
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 				<Route path="/productEdit/:id" element={<ProductEditTemplates />} />
 				<Route path="/mypage" element={<MyPageTemplates />} />
 				<Route path="/musicalDetail/:id" element={<MusicalDetailTemplates />} />
+				<Route path="/musicalRank" element={<MusicalRankTemplates />} />
 			</Routes>
 		</>
 	);
