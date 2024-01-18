@@ -45,6 +45,7 @@ export default function EditMain() {
 			<FormProvider {...methods} htmlFor="product">
 				<Form
 					onSubmit={handleSubmit((data) => {
+						console.log(data);
 						const keys = Object.keys(data);
 
 						for (let i = 0; i < keys.length; i++) {
@@ -55,6 +56,7 @@ export default function EditMain() {
 								formData.append(key, value);
 							}
 						}
+						console.log(formData);
 
 						productEdit(formData, putFunc, token);
 					})}

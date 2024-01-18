@@ -1,4 +1,4 @@
-import { xmlToJson } from '../xmlToJson/xmlToJson';
+import { xmlToJson } from '../business/xmlToJson';
 
 export const useGetJsonData = async (getUrl) => {
 	const response = await fetch(getUrl);
