@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import BannerLayout from './BannerLayout';
-import { xmlToJson } from '../../xmlToJson/xmlToJson';
+import { xmlToJson } from '../../business/xmlToJson';
 import InlineText from '../../Common/InlineText';
 import Prev from '../../assets/prev.png';
 import Next from '../../assets/next.png';
@@ -13,8 +13,11 @@ import { BannerIconCont } from './BannerIconCont';
 import { Icon } from './Icon';
 import { useSelector } from 'react-redux';
 import { useGetJsonData } from '../../hooks/useGetJsonData';
+import { getToday } from '../../business/getToday';
+import SectionHeader from './SectionHeader';
+import MoreRankingButton from './MoreRankingButton';
 
-const Div = styled.div`
+const Div = styled.section`
 	width: 100%;
 	display: relative;
 `;
@@ -30,10 +33,12 @@ const RightIcon = styled(BannerIconCont)`
 export default function Banner() {
 	const getData = useGetJsonData;
 	const navigate = useNavigate();
+	const today = getToday();
 	const ServiceKey = useSelector((state) => {
 		return state.musicalServiceKey.value;
 	});
-	const getUrl = `http://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=20240110&catecode=GGGA`;
+	const getUrl = `http://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=${today}&catecode=GGGA`;
+
 	const [boxoffice, setBoxOffice] = useState([]);
 	const [swipIndex, setSwipIndex] = useState(2);
 	const [carouselTransition, setCarouselTransition] = useState('all 0.5s ease-in-out');
@@ -126,6 +131,7 @@ export default function Banner() {
 						<Icon src={Next} onClick={nextSlide} />
 					</RightIcon>
 				</Slider>
+				<MoreRankingButton />
 			</Div>
 		</>
 	);
