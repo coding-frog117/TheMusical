@@ -7,6 +7,7 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { usePost, useDelete } from '../../hooks/useFetch';
 import { productRegist } from '../../apis/productRegist';
 import { useSelector } from 'react-redux';
+import { constants } from '../../constants/constants';
 
 const Form = styled.form`
 	margin: 0 auto;
@@ -42,6 +43,9 @@ export default function ProductMain() {
 
 							if (key !== 'image') {
 								formData.append(key, value);
+							}
+							if (key === 'product_info') {
+								formData.append(key, constants.IDENTIFY_WORD + value);
 							}
 						}
 

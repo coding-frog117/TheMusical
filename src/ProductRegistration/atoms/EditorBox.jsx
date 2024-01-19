@@ -27,8 +27,8 @@ export default function EditorBox(props) {
 
 	return (
 		<>
-			{props.info != undefined ? (
-				<TextArea {...register('product_info')}>{props.info}</TextArea>
+			{props.info !== undefined ? (
+				<TextArea {...register('product_info')}>{props.info.slice(12)}</TextArea>
 			) : text === true ? (
 				<TextArea
 					{...register('product_info', {

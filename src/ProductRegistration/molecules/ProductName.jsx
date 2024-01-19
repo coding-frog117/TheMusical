@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 
 export default function ProductName(props) {
-	const [count, setCount] = useState(0);
 	const {
 		register,
 		formState: { errors },
@@ -15,24 +14,7 @@ export default function ProductName(props) {
 	return (
 		<div>
 			<GrayTitleText text="상품명" />
-			{props.name ? (
-				<ProductInput
-					onChange={(e) => {
-						setCount(e.target.value.length);
-					}}
-					placeholder={props.name}
-				></ProductInput>
-			) : (
-				<ProductInput
-					onChange={(e) => {
-						setCount(e.target.value.length);
-					}}
-					{...register('product_name', {
-						required: '상품 이름을 입력해주세요',
-					})}
-				></ProductInput>
-			)}
-
+			<ProductInput {...register('product_name', { required: '상품 이름을 입력해주세요' })} />
 			<InlineText fontSize="14px" color={(props) => props.theme.lightGray} />
 		</div>
 	);

@@ -25,7 +25,7 @@ export default function ProductImage(props) {
 					<ImgButton setImage={props.setImage} setImageUrl={setImageUrl} />
 				</ProductImg>
 			) : (
-				<Img src={imageUrl} />
+				<Img src={imageUrl} value={imageUrl} />
 			)}
 		</div>
 	);

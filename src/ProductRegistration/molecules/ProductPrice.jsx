@@ -5,7 +5,7 @@ import ProductInputSmall from '../atoms/ProductInputSmall';
 import GrayTitleText from '../atoms/GrayTitleText';
 import { useFormContext } from 'react-hook-form';
 
-export default function ProductPrice(props) {
+export default function ProductPrice() {
 	const {
 		register,
 		formState: { errors },
@@ -14,15 +14,11 @@ export default function ProductPrice(props) {
 		<div>
 			<GrayTitleText text="판매가" />
 			<FlexInputLayout>
-				{props.price >= 0 ? (
-					<ProductInputSmall placeholder={props.price} />
-				) : (
-					<ProductInputSmall
-						{...register('price', {
-							required: '상품 가격을 입력해주세요',
-						})}
-					></ProductInputSmall>
-				)}
+				<ProductInputSmall
+					{...register('price', {
+						required: '상품 가격을 입력해주세요',
+					})}
+				/>
 				<GrayPriceBox text="원" />
 			</FlexInputLayout>
 		</div>

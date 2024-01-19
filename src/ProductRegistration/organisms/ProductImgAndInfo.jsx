@@ -4,7 +4,7 @@ import ProductInfo from './ProductInfo';
 import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 
-const Div = styled.div`
+export const Div = styled.div`
 	display: flex;
 	gap: 40px;
 `;
@@ -12,8 +12,8 @@ const Div = styled.div`
 export default function ProductImgAndInfo(props) {
 	return (
 		<Div>
-			<ProductImage image={props.image} setImage={props.setImage} editImage={props.editImage} />
-			<ProductInfo data={props.data} />
+			<ProductImage image={props.image} setImage={props.setImage} />
+			<ProductInfo />
 		</Div>
 	);
 }
