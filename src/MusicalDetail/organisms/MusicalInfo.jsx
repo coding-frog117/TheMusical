@@ -44,7 +44,6 @@ export default function MusicalInfo() {
 
 	return (
 		<>
-			<Header />
 			<MusicalHeader data={musicalData} />
 			<InfoLayout>
 				<ImgCont>

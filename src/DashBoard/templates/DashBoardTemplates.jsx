@@ -21,15 +21,12 @@ export default function DashBoardTemplates() {
 	const categoryName = ['판매중인 상품', '주문/배송', '문의/리뷰', '통계', '스토어 설정'];
 
 	return (
-		<>
-			<SellerHeader />
-			<Cont>
-				<DashBoardHeader />
-				<Div>
-					<SideBar categoryName={categoryName} />
-					<DashboardBox />
-				</Div>
-			</Cont>
-		</>
+		<Cont>
+			<DashBoardHeader />
+			<Div>
+				<SideBar categoryName={categoryName} />
+				<DashboardBox />
+			</Div>
+		</Cont>
 	);
 }
