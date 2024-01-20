@@ -8,20 +8,20 @@ import Stock from '../molecules/Stock';
 import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 
-const Div = styled.div`
+export const Div = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
 `;
 
-export default function ProductInfo(props) {
+export default function ProductInfo() {
 	return (
 		<Div>
-			<ProductName name={props.data?.product_name} />
-			<ProductPrice price={props.data?.price} />
-			<DeliveryOptions method={props.data?.shipping_method} />
-			<DeliveryFee fee={props.data?.shipping_fee} />
-			<Stock stock={props.data?.stock} />
+			<ProductName />
+			<ProductPrice />
+			<DeliveryOptions />
+			<DeliveryFee />
+			<Stock />
 		</Div>
 	);
 }

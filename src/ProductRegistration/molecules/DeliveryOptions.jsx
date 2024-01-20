@@ -32,6 +32,7 @@ export default function DeliveryOptions(props) {
 		<div>
 			<GrayTitleText text="배송방법" />
 			<ParcelButton
+				type="button"
 				{...register('shipping_method', {
 					required: '배송 옵션을 선택해주세요',
 				})}
@@ -47,6 +48,7 @@ export default function DeliveryOptions(props) {
 			</ParcelButton>
 
 			<DeliveryButton
+				type="button"
 				deliveryBorder={deliveryBorder}
 				onClick={() => {
 					setDelivery('DELIVERY');

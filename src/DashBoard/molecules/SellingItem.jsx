@@ -54,7 +54,7 @@ export default function SellingItem() {
 						}}
 					/>
 					<SellingItemName text={item.product_name} count={item.stock} id={item.product_id} />
-					<TextSpan>{item.price}</TextSpan>
+					<TextSpan>{item.price.toLocaleString()}</TextSpan>
 					<EditButton
 						onClick={() => {
 							navigator(`/productEdit/${item.product_id}`);
