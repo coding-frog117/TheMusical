@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/TheMusical/static/js/main.52e21596.js",
+    "main.js": "/TheMusical/static/js/main.012550d4.js",
     "static/media/SpoqaHanSansNeo-Bold.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Bold.1db18034ccc384032a4a.woff2",
     "static/media/SpoqaHanSansNeo-Regular.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Regular.452bf1579d6a73fbaffc.woff2",
     "static/media/SpoqaHanSansNeo-Medium.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Medium.8589927a4fa35d637a8d.woff2",
@@ -14,9 +14,9 @@
     "static/media/icon-shopping-cart.svg": "/TheMusical/static/media/icon-shopping-cart.260e3c47f3c2b67320b7bfbb307d3922.svg",
     "static/media/icon-yt.svg": "/TheMusical/static/media/icon-yt.ef6b69965613ce763ac5615b0376fb1f.svg",
     "static/media/icon-shopping-bag.svg": "/TheMusical/static/media/icon-shopping-bag.c30a27dea00a4be4986bf03830c95564.svg",
+    "index.html": "/TheMusical/index.html",
     "static/media/icon-user-2.svg": "/TheMusical/static/media/icon-user-2.22565d01528a2b764bad88b7d97bb126.svg",
     "static/media/icon-user.svg": "/TheMusical/static/media/icon-user.592c12f91ec326fe4c938c17c904c301.svg",
-    "index.html": "/TheMusical/index.html",
     "static/media/minus-icon_2.svg": "/TheMusical/static/media/minus-icon_2.1ceabfc03051a02b6eb6fcb7af943223.svg",
     "static/media/icon-fb.svg": "/TheMusical/static/media/icon-fb.e2a7fb3268c3441056d8c3e595bde2ca.svg",
     "static/media/search.svg": "/TheMusical/static/media/search.31d1cded5342b60ba08813977fe8432f.svg",
@@ -29,9 +29,9 @@
     "static/media/icon-plus-line.svg": "/TheMusical/static/media/icon-plus-line.e9b94391f41e62cff1460f0d4484a1de.svg",
     "static/media/check-box.svg": "/TheMusical/static/media/check-box.d889b0e765960057172eda9df6e9d488.svg",
     "static/media/icon-minus-line.svg": "/TheMusical/static/media/icon-minus-line.6afc0ab6bf57cdb443f577bf25a96bae.svg",
-    "main.52e21596.js.map": "/TheMusical/static/js/main.52e21596.js.map"
+    "main.012550d4.js.map": "/TheMusical/static/js/main.012550d4.js.map"
   },
   "entrypoints": [
-    "static/js/main.52e21596.js"
+    "static/js/main.012550d4.js"
   ]
 }
