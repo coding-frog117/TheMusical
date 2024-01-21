@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.js": "/TheMusical/static/js/main.50924ba8.js",
+    "static/media/SpoqaHanSansNeo-Bold.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Bold.1db18034ccc384032a4a.woff2",
+    "static/media/SpoqaHanSansNeo-Regular.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Regular.452bf1579d6a73fbaffc.woff2",
+    "static/media/SpoqaHanSansNeo-Medium.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Medium.8589927a4fa35d637a8d.woff2",
+    "static/media/SpoqaHanSansNeo-Light.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Light.13ba65ce1663198528ba.woff2",
+    "static/media/SpoqaHanSansNeo-Thin.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Thin.9aab6330b7ba8adf7abf.woff2",
+    "static/media/prev.png": "/TheMusical/static/media/prev.7f6c24006944599fd96f.png",
+    "static/media/next.png": "/TheMusical/static/media/next.a0e6f1961250e9334421.png",
+    "static/media/Logo.svg": "/TheMusical/static/media/Logo.08c93ab363085c282c5e20bb69f734d3.svg",
+    "static/media/icon-insta.svg": "/TheMusical/static/media/icon-insta.667bd4c9b20623f68626b65e37efde16.svg",
+    "static/media/icon-shopping-cart-2.svg": "/TheMusical/static/media/icon-shopping-cart-2.72388280600686f1b5f016103c59d937.svg",
+    "static/media/icon-shopping-cart.svg": "/TheMusical/static/media/icon-shopping-cart.260e3c47f3c2b67320b7bfbb307d3922.svg",
+    "static/media/icon-yt.svg": "/TheMusical/static/media/icon-yt.ef6b69965613ce763ac5615b0376fb1f.svg",
+    "static/media/icon-shopping-bag.svg": "/TheMusical/static/media/icon-shopping-bag.c30a27dea00a4be4986bf03830c95564.svg",
+    "static/media/icon-user-2.svg": "/TheMusical/static/media/icon-user-2.22565d01528a2b764bad88b7d97bb126.svg",
+    "static/media/icon-user.svg": "/TheMusical/static/media/icon-user.592c12f91ec326fe4c938c17c904c301.svg",
+    "index.html": "/TheMusical/index.html",
+    "static/media/minus-icon_2.svg": "/TheMusical/static/media/minus-icon_2.1ceabfc03051a02b6eb6fcb7af943223.svg",
+    "static/media/icon-fb.svg": "/TheMusical/static/media/icon-fb.e2a7fb3268c3441056d8c3e595bde2ca.svg",
+    "static/media/search.svg": "/TheMusical/static/media/search.31d1cded5342b60ba08813977fe8432f.svg",
+    "static/media/plus-icon_2.svg": "/TheMusical/static/media/plus-icon_2.a815667c348eed95155031fb84eebc8f.svg",
+    "static/media/icon-plus.svg": "/TheMusical/static/media/icon-plus.7e7ed422a3ad44a4ebf8402de84c7517.svg",
+    "static/media/icon-delete.svg": "/TheMusical/static/media/icon-delete.121663055a66bea381f653451bce0cb6.svg",
+    "static/media/check-fill-box.svg": "/TheMusical/static/media/check-fill-box.04c660b97ededcabf70f7a1a6275502a.svg",
+    "static/media/icon-check-off.svg": "/TheMusical/static/media/icon-check-off.a782100a4aaf5c15b3f3dcd8f1f5c67d.svg",
+    "static/media/icon-check-on.svg": "/TheMusical/static/media/icon-check-on.3d0748b3e400aa6dc0e75737d2b8407d.svg",
+    "static/media/icon-plus-line.svg": "/TheMusical/static/media/icon-plus-line.e9b94391f41e62cff1460f0d4484a1de.svg",
+    "static/media/check-box.svg": "/TheMusical/static/media/check-box.d889b0e765960057172eda9df6e9d488.svg",
+    "static/media/icon-minus-line.svg": "/TheMusical/static/media/icon-minus-line.6afc0ab6bf57cdb443f577bf25a96bae.svg",
+    "main.50924ba8.js.map": "/TheMusical/static/js/main.50924ba8.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.50924ba8.js"
+  ]
+}
