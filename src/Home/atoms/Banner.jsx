@@ -37,7 +37,7 @@ export default function Banner() {
 	const ServiceKey = useSelector((state) => {
 		return state.musicalServiceKey.value;
 	});
-	const getUrl = `http://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=${today}&catecode=GGGA`;
+	const getUrl = `https://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=${today}&catecode=GGGA`;
 
 	const [boxoffice, setBoxOffice] = useState([]);
 	const [swipIndex, setSwipIndex] = useState(2);

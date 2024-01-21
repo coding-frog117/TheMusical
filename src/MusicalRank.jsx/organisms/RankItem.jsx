@@ -23,7 +23,7 @@ export default function RankItem() {
 	const ServiceKey = useSelector((state) => {
 		return state.musicalServiceKey.value;
 	});
-	const getUrl = `http://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=${today}&catecode=GGGA`;
+	const getUrl = `https://kopis.or.kr/openApi/restful/boxoffice?service=${ServiceKey}&ststype=week&date=${today}&catecode=GGGA`;
 
 	useEffect(() => {
 		getData(getUrl).then((data) => {
