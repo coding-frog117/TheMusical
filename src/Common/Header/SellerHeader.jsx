@@ -23,12 +23,14 @@ export const Div = styled.div`
 
 export default function SellerHeader() {
 	return (
-		<HomeLayout>
+		<>
 			<H1>
-				<HeaderLogo />
-				<Div>판매자 센터</Div>
+				<Div>
+					<HeaderLogo />
+					판매자 센터
+				</Div>
 			</H1>
 			<Outlet />
-		</HomeLayout>
+		</>
 	);
 }
