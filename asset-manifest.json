@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/TheMusical/static/js/main.50924ba8.js",
+    "main.js": "/TheMusical/static/js/main.52e21596.js",
     "static/media/SpoqaHanSansNeo-Bold.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Bold.1db18034ccc384032a4a.woff2",
     "static/media/SpoqaHanSansNeo-Regular.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Regular.452bf1579d6a73fbaffc.woff2",
     "static/media/SpoqaHanSansNeo-Medium.woff2": "/TheMusical/static/media/SpoqaHanSansNeo-Medium.8589927a4fa35d637a8d.woff2",
@@ -29,9 +29,9 @@
     "static/media/icon-plus-line.svg": "/TheMusical/static/media/icon-plus-line.e9b94391f41e62cff1460f0d4484a1de.svg",
     "static/media/check-box.svg": "/TheMusical/static/media/check-box.d889b0e765960057172eda9df6e9d488.svg",
     "static/media/icon-minus-line.svg": "/TheMusical/static/media/icon-minus-line.6afc0ab6bf57cdb443f577bf25a96bae.svg",
-    "main.50924ba8.js.map": "/TheMusical/static/js/main.50924ba8.js.map"
+    "main.52e21596.js.map": "/TheMusical/static/js/main.52e21596.js.map"
   },
   "entrypoints": [
-    "static/js/main.50924ba8.js"
+    "static/js/main.52e21596.js"
   ]
 }
