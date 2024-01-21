@@ -5,6 +5,12 @@ import GetButton from '../atoms/GetButton';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { constants } from '../../constants/constants';
+import styled from 'styled-components';
+
+const Div = styled.div`
+	display: flex;
+	gap: 14px;
+`;
 
 export default function Buttons(props) {
 	const navigator = useNavigate();
@@ -14,7 +20,7 @@ export default function Buttons(props) {
 	});
 
 	return (
-		<ProductLayout gap="14px">
+		<Div>
 			<JoinWithSignupButton
 				onClick={() => {
 					if (loginType === 'BUYER') {
@@ -27,6 +33,6 @@ export default function Buttons(props) {
 				바로 구매
 			</JoinWithSignupButton>
 			<GetButton text="장바구니" count={props.count} />
-		</ProductLayout>
+		</Div>
 	);
 }
