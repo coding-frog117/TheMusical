@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import HeaderLogo from '../../Home/atoms/HeaderLogo';
+import { Outlet } from 'react-router-dom';
+import { HomeLayout } from '../HomeLayout';
 
 export const H1 = styled.h1`
 	width: 100%;
@@ -20,8 +23,12 @@ export const Div = styled.div`
 
 export default function SellerHeader() {
 	return (
-		<H1>
-			<Div>판매자 센터</Div>
-		</H1>
+		<HomeLayout>
+			<H1>
+				<HeaderLogo />
+				<Div>판매자 센터</Div>
+			</H1>
+			<Outlet />
+		</HomeLayout>
 	);
 }

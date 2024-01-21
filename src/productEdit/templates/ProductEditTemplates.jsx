@@ -6,12 +6,9 @@ import Main from '../organisms/Main';
 
 export default function ProductEditTemplates() {
 	return (
-		<>
-			<SellerHeader />
-			<Section>
-				<RegistrationHeader text="상품 수정" />
-				<Main />
-			</Section>
-		</>
+		<Section>
+			<RegistrationHeader text="상품 수정" />
+			<Main />
+		</Section>
 	);
 }

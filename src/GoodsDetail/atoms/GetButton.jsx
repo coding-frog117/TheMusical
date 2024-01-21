@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { usePost } from '../../hooks/useFetch';
 import { useNavigate, useParams } from 'react-router-dom';
 import { cartAppend } from '../../apis/cartAppend';
+import { constants } from '../../constants/constants';
 
 const Button = styled(CheckButton)`
 	width: 200px;
@@ -19,6 +20,9 @@ export default function GetButton(props) {
 	const token = useSelector((state) => {
 		return state.persistedReducer.token.value;
 	});
+	const loginType = useSelector((state) => {
+		return state.persistedReducer.login_type.value.payload;
+	});
 
 	const postFunc = usePost('/cart/');
 	const postData = {
@@ -30,7 +34,11 @@ export default function GetButton(props) {
 	return (
 		<Button
 			onClick={() => {
-				cartAppend(postFunc, postData, token, navigator);
+				if (loginType === 'BUYER') {
+					cartAppend(postFunc, postData, token, navigator);
+				} else {
+					alert(constants.limitedMessage);
+				}
 			}}
 		>
 			{props.text}

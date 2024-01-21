@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Plus from '../../assets/icon-plus.svg';
 import { useNavigate } from 'react-router-dom';
 
-const Button = styled.button`
+export const Button = styled.button`
 	width: 168px;
 	height: 54px;
 	background-color: ${(props) => props.theme.mainColor};
@@ -11,7 +11,7 @@ const Button = styled.button`
 	float: right;
 `;
 
-const Text = styled.span`
+export const Text = styled.span`
 	font-size: 18px;
 	color: #fff;
 	font-weight: 500;

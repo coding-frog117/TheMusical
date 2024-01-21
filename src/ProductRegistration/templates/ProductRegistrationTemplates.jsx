@@ -12,12 +12,9 @@ export const Section = styled.section`
 
 export default function ProductRegistrationTemplates() {
 	return (
-		<>
-			<SellerHeader />
-			<Section>
-				<RegistrationHeader text="상품 등록" />
-				<Main />
-			</Section>
-		</>
+		<Section>
+			<RegistrationHeader text="상품 등록" />
+			<Main />
+		</Section>
 	);
 }
