@@ -6,7 +6,7 @@ import CartTemplates from './Cart/templates/CartTemplates';
 import OrderTemplates from './Order/templates/OrderTemplates';
 import DashBoardTemplates from './DashBoard/templates/DashBoardTemplates';
 import ProductRegistrationTemplates from './ProductRegistration/templates/ProductRegistrationTemplates';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import ProductEditTemplates from './productEdit/templates/ProductEditTemplates';
 import MyPageTemplates from './MyPage/templates/MyPageTemplates';
 import MusicalDetailTemplates from './MusicalDetail/templates/MusicalDetailTemplates';
@@ -41,18 +41,22 @@ function App() {
 						</Route>
 					</>
 				) : (
-					<Route element={<Header />}>
-						<Route path="/" element={<HomeTemplates />} />
-						<Route path="/login" element={<LoginTemplates />} />
-						<Route path="/signup" element={<SignupTemplates />} />
-						<Route path="/productDetail/:id" element={<GoodsDetailTemplates />} />
-						<Route path="/cart" element={<CartTemplates />} />
-						<Route path="/order/cartOrder" element={<OrderTemplates />} />
-						<Route path="/order/:id" element={<OrderTemplates />} />
-						<Route path="/mypage" element={<MyPageTemplates />} />
-						<Route path="/musicalDetail/:id" element={<MusicalDetailTemplates />} />
-						<Route path="/musicalRank" element={<MusicalRankTemplates />} />
-					</Route>
+					<>
+						<Route element={<Header />}>
+							<Route path="/" element={<HomeTemplates />} />
+							<Route path="/login" element={<LoginTemplates />} />
+							<Route path="/signup" element={<SignupTemplates />} />
+							<Route path="/productDetail/:id" element={<GoodsDetailTemplates />} />
+							<Route path="/cart" element={<CartTemplates />} />
+							<Route path="/order/cartOrder" element={<OrderTemplates />} />
+							<Route path="/order/:id" element={<OrderTemplates />} />
+							<Route path="/musicalDetail/:id" element={<MusicalDetailTemplates />} />
+							<Route path="/musicalRank" element={<MusicalRankTemplates />} />
+						</Route>
+						<Route element={<Header width="1720px" />}>
+							<Route path="/mypage" element={<MyPageTemplates />} />
+						</Route>
+					</>
 				)}
 			</Routes>
 		</>

@@ -6,9 +6,9 @@ import SearchBar from '../../Home/molecules/SearchBar';
 import Buttons from '../../Home/molecules/Buttons';
 import { Outlet } from 'react-router-dom';
 
-export default function Header() {
+export default function Header(props) {
 	return (
-		<HomeLayout>
+		<HomeLayout width={props.width}>
 			<HeaderBar>
 				<HeaderLogo />
 				<SearchBar />

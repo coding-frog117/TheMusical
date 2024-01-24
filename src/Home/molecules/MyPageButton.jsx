@@ -12,7 +12,7 @@ export default function MyPageButton() {
 				<MyPageIcon IconSrc={IconSrc} setIconSrc={setIconSrc} />
 				<IconText text="마이페이지" />
 			</button>
-			{IconSrc === true ? <MyPageModal /> : null}
+			{IconSrc === true ? <MyPageModal setIconSrc={setIconSrc} /> : null}
 		</>
 	);
 }
