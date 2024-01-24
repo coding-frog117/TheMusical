@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { depositLoginType } from '../../store/loginTypeSlice';
 
-export default function MyPageModal() {
+export default function MyPageModal(props) {
 	const postFunc = usePost('accounts/logout/');
 	const dispatch = useDispatch();
 	const navigator = useNavigate();
@@ -25,6 +25,7 @@ export default function MyPageModal() {
 						navigator('/mypage');
 					} else {
 						navigator('/login');
+						props.setIconSrc(false);
 					}
 				}}
 			>
