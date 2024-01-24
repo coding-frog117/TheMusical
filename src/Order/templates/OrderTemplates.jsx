@@ -18,12 +18,14 @@ export default function OrderTemplates() {
 	let { id } = useParams();
 	const getFunc = useGet(`products/${id}`);
 	const [price, setPrice] = useState([]);
+	const [directFee, setDirectFee] = useState();
 	const { state } = useLocation();
 
 	useEffect(() => {
 		if (id) {
 			getFunc().then((res) => {
-				return setPrice(res.data.price);
+				setPrice(res.data.price);
+				setDirectFee(res.data.shipping_fee);
 			});
 		}
 	});
@@ -57,7 +59,15 @@ export default function OrderTemplates() {
 								}
 							});
 						} else {
-							await orderDirect(postFunc, token, data, id, state.quantity, price, state.orderKind).then((res) => {
+							await orderDirect(
+								postFunc,
+								token,
+								data,
+								id,
+								state.quantity,
+								state.quantity * price + directFee,
+								state.orderKind
+							).then((res) => {
 								if (window.confirm('주문이 완료되었습니다. 주문 목록으로 가시겠습니까?')) {
 									navigator('/mypage');
 								} else {
