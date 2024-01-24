@@ -3,7 +3,7 @@ export default async function orderDirect(postFunc, token, data, id, quantity, p
 		product_id: id,
 		quantity: quantity,
 		order_kind: orderKind,
-		total_price: price * quantity,
+		total_price: price,
 
 		receiver: data.receiver,
 		receiver_phone_number:
