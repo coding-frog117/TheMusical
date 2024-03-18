@@ -1,7 +1,8 @@
 # TheMusical
-뮤지컬 관련 굿즈를 사고 팔 수 있는 오픈마켓
 
-## 배포 주소 https://coding-frog117.github.io/TheMusical/
+## 배포 주소 https://coding-frog117.github.io/TheMusical/ 
+⭐현재 오픈 api 데이터의 오류로 메인 페이지 데이터가 보이지 않습니다. 사용 시 참고 바랍니다.
+
 
 ### 개발 기간 :2023.03.28 ~ 2024.01.21
 
